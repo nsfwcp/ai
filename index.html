@@ -10,6 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@600;700;800;900&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
 
+    <!-- Stripe Buy Button SDK -->
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AaZIURGHfoVL0seNGmKhkm3_piU1UERhw7N4TaWhA8DIRRfxZ383l5QqVbyBHfsrB1Hz3H589vd1ZcpI&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card" data-sdk-integration-source="developer-studio"></script>
+
     <style>
         /* ============================================================
                GLOBAL RESET & BASE (shared across all views)
@@ -577,6 +583,53 @@
             color: var(--bubblegum);
         }
 
+        /* ---- Payment Section inside ScumCraft ---- */
+        #view-claycraft .payment-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px dashed rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 3;
+            text-align: center;
+        }
+        #view-claycraft .payment-section h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2rem;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+        #view-claycraft .payment-box {
+            background: var(--white);
+            border-radius: 40px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 0 var(--light-gray), 0 12px 30px var(--shadow-color);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #view-claycraft .payment-box h3 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            margin-bottom: 0.8rem;
+        }
+        #view-claycraft .payment-box #paypal-button-container {
+            min-height: 40px;
+        }
+        #view-claycraft .payment-box stripe-buy-button {
+            display: block;
+            width: 100%;
+        }
+        #view-claycraft .payment-result {
+            margin-top: 0.8rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            font-size: 1rem;
+        }
+
         #view-claycraft .ribbon-deco {
             position: absolute;
             pointer-events: none;
@@ -672,6 +725,9 @@
             }
             #view-claycraft .confetti-dots {
                 display: none;
+            }
+            #view-claycraft .payment-box {
+                max-width: 100%;
             }
         }
         @media (max-width: 480px) {
@@ -2003,7 +2059,7 @@
     </nav>
 
     <!-- ============================================================
-    VIEW 1 – SCUMCRAFT
+    VIEW 1 – SCUMCRAFT (with payment at bottom)
     ============================================================ -->
     <div id="view-claycraft" class="view active">
         <!-- NOISE OVERLAY -->
@@ -2091,6 +2147,25 @@
                 <div class="footer-note">
                     ✦ made with <span>🖤</span> &amp; scum ✦
                 </div>
+
+                <!-- ===== PAYMENT SECTION (new) ===== -->
+                <div class="payment-section">
+                    <h2>💳 Support the Scum</h2>
+                    <div class="payment-box">
+                        <h3>Pay with PayPal</h3>
+                        <div id="paypal-button-container"></div>
+                    </div>
+                    <div class="payment-box">
+                        <h3>Pay with Stripe</h3>
+                        <stripe-buy-button
+                            buy-button-id="buy_btn_1To1ABFRbDEWBIuImlKSGB0L"
+                            publishable-key="pk_live_51Tb3oKFRbDEWBIuIdJxw3zJmH9u75HuAMcC8wVf5umYIRcauPcVEpFqmQhTMWH9ETfyPEgN3LpYl5kQwrTUn0fKf00hRARMgRc"
+                        >
+                        </stripe-buy-button>
+                    </div>
+                    <div class="payment-result" id="paymentResult"></div>
+                </div>
+                <!-- /payment-section -->
 
             </div>
             <!-- /platform -->
@@ -2567,13 +2642,53 @@
                     });
                     document.getElementById(viewId).classList.add('active');
 
-                    // Re-trigger IntersectionObserver for Patreon view if needed
-                    if (viewId === 'view-patreon') {
-                        // The observer is already watching, but we can manually trigger a check
-                        // We'll let the observer handle it on scroll
+                    if (viewId === 'view-claycraft') {
+                        // Render PayPal when switching to ScumCraft (if not already rendered)
+                        renderPayPal();
                     }
                 });
             });
+
+            // ---- PayPal Rendering (only once) ----
+            let paypalRendered = false;
+
+            function renderPayPal() {
+                if (paypalRendered) return;
+                if (typeof paypal === 'undefined' || !paypal.Buttons) {
+                    console.warn('PayPal SDK not ready, retrying in 500ms');
+                    setTimeout(renderPayPal, 500);
+                    return;
+                }
+                const container = document.getElementById('paypal-button-container');
+                if (!container) return;
+                if (container.children.length > 0) return; // already rendered
+
+                try {
+                    paypal.Buttons({
+                        createOrder: function(data, actions) {
+                            return actions.order.create({
+                                purchase_units: [{
+                                    amount: { value: '10.00' }
+                                }]
+                            });
+                        },
+                        onApprove: function(data, actions) {
+                            return actions.order.capture().then(function(details) {
+                                document.getElementById('paymentResult').innerHTML =
+                                    '✅ PayPal transaction completed by ' + details.payer.name
+                                    .given_name;
+                            });
+                        },
+                        onError: function(err) {
+                            document.getElementById('paymentResult').innerHTML =
+                                '❌ PayPal error: ' + err.message;
+                        }
+                    }).render('#paypal-button-container');
+                    paypalRendered = true;
+                } catch (e) {
+                    console.warn('PayPal render error:', e);
+                }
+            }
 
             // ---- VIEW 1: ScumCraft scripts ----
             // Confetti dots
@@ -2939,9 +3054,10 @@
                 });
             }
 
-            // Note: we don't have a back-to-top button for Patreon view because the global one is not present; but we could add one if needed.
+            // ---- Render PayPal on initial load (ScumCraft is active) ----
+            renderPayPal();
 
-            console.log('🖤 ScumCraft + 🧸 Scumbag Guide + ✨ Patreon+ AI — all loaded.');
+            console.log('🖤 ScumCraft + payment + 🧸 Scumbag Guide + ✨ Patreon+ AI — all loaded.');
         })();
     </script>
 
