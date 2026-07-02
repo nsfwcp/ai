@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scum Guide + Toxic Guide + Patreon AI</title>
+    <title>Scum Guide + Tech Hustle + Patreon AI + Subscribe</title>
 
     <!-- Google Fonts (shared) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,7 +18,7 @@
 
     <style>
         /* ============================================================
-               GLOBAL RESET & BASE (shared across all views)
+               GLOBAL RESET & BASE
                ============================================================ */
         *,
         *::before,
@@ -41,7 +41,7 @@
             position: relative;
         }
 
-        /* ---- TAB NAVIGATION (clay style) ---- */
+        /* ---- TAB NAVIGATION ---- */
         .tab-nav {
             display: flex;
             justify-content: center;
@@ -104,10 +104,9 @@
         }
 
         /* ============================================================
-               VIEW 1 – SCUM GUIDE (updated content, same theme)
+               VIEW 1 – SCUM GUIDE (UNCHANGED)
                ============================================================ */
         #view-claycraft {
-            /* color palette */
             --sky-blue: #73C8F7;
             --bubblegum: #F55F9A;
             --bright-pink: #FF6AAE;
@@ -582,7 +581,6 @@
             color: var(--bubblegum);
         }
 
-        /* ---- Payment Section inside Scum Guide ---- */
         #view-claycraft .payment-section {
             margin-top: 3rem;
             padding-top: 2rem;
@@ -754,7 +752,7 @@
         }
 
         /* ============================================================
-               VIEW 2 – TOXIC GUIDE (formerly Scumbag Guide, scoped)
+               VIEW 2 – TECH HUSTLE GUIDE (UNCHANGED)
                ============================================================ */
         #view-guide {
             --bg: #f9f2e7;
@@ -937,12 +935,12 @@
             overflow: hidden;
         }
         #view-guide .hero::before {
-            content: '🧶';
+            content: '🧠';
             position: absolute;
             font-size: 8rem;
             right: 0;
             bottom: -10px;
-            opacity: 0.15;
+            opacity: 0.12;
             transform: rotate(10deg);
             pointer-events: none;
         }
@@ -966,7 +964,7 @@
         #view-guide .hero p {
             font-size: 1.25rem;
             color: var(--text-dim);
-            max-width: 550px;
+            max-width: 600px;
             margin: 1.2rem 0 2rem;
             position: relative;
             z-index: 1;
@@ -1010,7 +1008,7 @@
 
         #view-guide .archetype-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1.8rem;
             margin-bottom: 3rem;
         }
@@ -1261,21 +1259,6 @@
             font-weight: 400;
         }
 
-        #view-guide .text-accent {
-            color: #c07a3a;
-        }
-        #view-guide .flex-center {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        #view-guide .mt-1 {
-            margin-top: 0.5rem;
-        }
-        #view-guide .mb-1 {
-            margin-bottom: 0.5rem;
-        }
-
         @media (max-width: 720px) {
             #view-guide .site-header {
                 flex-direction: column;
@@ -1334,7 +1317,7 @@
         }
 
         /* ============================================================
-               VIEW 3 – PATREON+ AI (family-friendly studio)
+               VIEW 3 – PATREON+ AI (UNCHANGED)
                ============================================================ */
         #view-patreon {
             font-family: 'Inter', -apple-system, sans-serif;
@@ -1343,7 +1326,7 @@
             overflow-x: hidden;
             line-height: 1.6;
             min-height: 100vh;
-            padding-top: 1px; /* prevent margin collapse */
+            padding-top: 1px;
         }
 
         #view-patreon .blob {
@@ -1460,7 +1443,7 @@
             background: rgba(45, 27, 66, 0.55);
             z-index: 0;
         }
-        #view-patreon #hero > * {
+        #view-patreon #hero>* {
             position: relative;
             z-index: 1;
         }
@@ -1879,7 +1862,7 @@
             background: rgba(45, 27, 66, 0.6);
             z-index: 0;
         }
-        #view-patreon #banner > * {
+        #view-patreon #banner>* {
             position: relative;
             z-index: 1;
         }
@@ -1954,7 +1937,6 @@
             display: none;
         }
 
-        /* Responsive for Patreon view */
         @media (max-width: 992px) {
             #view-patreon .about-grid {
                 grid-template-columns: 1fr;
@@ -2046,6 +2028,110 @@
                 font-size: 1.6rem;
             }
         }
+
+        /* ============================================================
+               VIEW 4 – SUBSCRIBE (NEW)
+               ============================================================ */
+        #view-subscribe {
+            --cream: #FFF8E7;
+            --light-gray: #B6B6B6;
+            --shadow-color: rgba(74, 74, 74, 0.20);
+            --white: #FFFFFF;
+            --charcoal: #4A4A4A;
+            --bubblegum: #F55F9A;
+            padding: 2rem 1.5rem;
+            background: #FDF8F0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #view-subscribe .subscribe-wrapper {
+            background: var(--cream);
+            border-radius: 80px 80px 60px 60px;
+            padding: 3.5rem 3rem;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 20px 0 var(--light-gray), 0 30px 50px var(--shadow-color);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            text-align: center;
+        }
+
+        #view-subscribe .subscribe-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: clamp(2.8rem, 8vw, 4.5rem);
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+            text-shadow: 0 4px 0 #d9cdbc;
+        }
+
+        #view-subscribe .subscribe-sub {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #6b5f52;
+            margin-bottom: 2rem;
+        }
+
+        #view-subscribe .payment-box {
+            background: var(--white);
+            border-radius: 40px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 0 var(--light-gray), 0 12px 30px var(--shadow-color);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        #view-subscribe .payment-box h3 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            margin-bottom: 0.8rem;
+        }
+
+        #view-subscribe .payment-box #subscribe-paypal-container {
+            min-height: 40px;
+        }
+
+        #view-subscribe .payment-box stripe-buy-button {
+            display: block;
+            width: 100%;
+        }
+
+        #view-subscribe .subscribe-result {
+            margin-top: 1rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            font-size: 1rem;
+            padding: 0.8rem;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        #view-subscribe .decor-emoji {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            animation: floatUp 4s ease-in-out infinite alternate;
+        }
+
+        @media (max-width: 600px) {
+            #view-subscribe .subscribe-wrapper {
+                padding: 2rem 1.5rem;
+                border-radius: 50px 50px 40px 40px;
+            }
+            #view-subscribe .subscribe-title {
+                font-size: 2.4rem;
+            }
+            #view-subscribe .subscribe-sub {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2053,26 +2139,22 @@
     <!-- ===== TAB NAVIGATION ===== -->
     <nav class="tab-nav">
         <button class="tab-btn active" data-view="view-claycraft">🧱 Scum Guide</button>
-        <button class="tab-btn" data-view="view-guide">🧸 Toxic Guide</button>
+        <button class="tab-btn" data-view="view-guide">🧠 Tech Hustle</button>
         <button class="tab-btn" data-view="view-patreon">✨ Patreon+ AI</button>
+        <button class="tab-btn" data-view="view-subscribe">💳 Subscribe</button>
     </nav>
 
     <!-- ============================================================
-    VIEW 1 – SCUM GUIDE (updated content)
+    VIEW 1 – SCUM GUIDE (UNCHANGED)
     ============================================================ -->
     <div id="view-claycraft" class="view active">
-        <!-- NOISE OVERLAY -->
         <div class="noise-overlay"></div>
-
-        <!-- BACKGROUND SPLASHES -->
         <div class="bg-splashes">
             <div class="splash splash--1"></div>
             <div class="splash splash--2"></div>
             <div class="splash splash--3"></div>
             <div class="splash splash--4"></div>
         </div>
-
-        <!-- FLOATING DECORATIONS -->
         <div class="floating-deco floating-deco--1">⭐</div>
         <div class="floating-deco floating-deco--2">❤️</div>
         <div class="floating-deco floating-deco--3">✨</div>
@@ -2081,46 +2163,27 @@
         <div class="floating-deco floating-deco--6">🌈</div>
         <div class="floating-deco floating-deco--7">🎀</div>
         <div class="floating-deco floating-deco--8">✦</div>
-
-        <!-- CONFETTI DOTS -->
         <div class="confetti-dots" id="confettiDots"></div>
 
-        <!-- MAIN WRAPPER -->
         <div class="main-wrapper">
-
-            <!-- PLATFORM -->
             <div class="platform">
-
-                <!-- glints -->
                 <div class="glint glint--1"></div>
                 <div class="glint glint--2"></div>
-
-                <!-- ribbon decorations -->
                 <div class="ribbon-deco ribbon-deco--top">🎀</div>
                 <div class="ribbon-deco ribbon-deco--bottom">🎀</div>
-
-                <!-- clay props -->
                 <div class="clay-props clay-props--star">⭐</div>
                 <div class="clay-props clay-props--heart">❤️</div>
                 <div class="clay-props clay-props--circle">⚪</div>
                 <div class="clay-props clay-props--ribbon">🌀</div>
 
-                <!-- HERO -->
                 <div class="hero-center">
-
                     <h1 class="clay-title">Scum Guide</h1>
-
                     <div class="subtitle">
                         ✦ &nbsp; <span>Survive</span> · <span class="highlight-cyan">Create</span> · <span class="highlight-gold">Monetize</span> &nbsp; ✦
                     </div>
-
-                    <button class="clay-button" id="mainCta">
-                        🚀&nbsp; Start Hustling
-                    </button>
-
+                    <button class="clay-button" id="mainCta">🚀&nbsp; Start Hustling</button>
                 </div>
 
-                <!-- FEATURES (updated content) -->
                 <div class="features">
                     <div class="clay-card">
                         <span class="card-icon">🚔</span>
@@ -2142,12 +2205,8 @@
                     </div>
                 </div>
 
-                <!-- FOOTER -->
-                <div class="footer-note">
-                    ✦ made with <span>🖤</span> &amp; scum ✦
-                </div>
+                <div class="footer-note">✦ made with <span>🖤</span> &amp; scum ✦</div>
 
-                <!-- ===== PAYMENT SECTION ===== -->
                 <div class="payment-section">
                     <h2>💳 Support the Scum</h2>
                     <div class="payment-box">
@@ -2156,220 +2215,196 @@
                     </div>
                     <div class="payment-box">
                         <h3>Pay with Stripe</h3>
-                        <stripe-buy-button
-                            buy-button-id="buy_btn_1To1ABFRbDEWBIuImlKSGB0L"
-                            publishable-key="pk_live_51Tb3oKFRbDEWBIuIdJxw3zJmH9u75HuAMcC8wVf5umYIRcauPcVEpFqmQhTMWH9ETfyPEgN3LpYl5kQwrTUn0fKf00hRARMgRc"
-                        >
+                        <stripe-buy-button buy-button-id="buy_btn_1To1ABFRbDEWBIuImlKSGB0L" publishable-key="pk_live_51Tb3oKFRbDEWBIuIdJxw3zJmH9u75HuAMcC8wVf5umYIRcauPcVEpFqmQhTMWH9ETfyPEgN3LpYl5kQwrTUn0fKf00hRARMgRc">
                         </stripe-buy-button>
                     </div>
                     <div class="payment-result" id="paymentResult"></div>
                 </div>
-                <!-- /payment-section -->
-
             </div>
-            <!-- /platform -->
-
         </div>
-        <!-- /main-wrapper -->
     </div>
-    <!-- /view-claycraft -->
 
     <!-- ============================================================
-    VIEW 2 – TOXIC GUIDE (formerly Scumbag Guide)
+    VIEW 2 – TECH HUSTLE (UNCHANGED)
     ============================================================ -->
     <div id="view-guide" class="view">
         <div class="container">
-
-            <!-- HEADER -->
             <header class="site-header">
                 <div class="logo">
-                    <span class="emoji-big">🧸</span>
-                    <span>Toxic Guide</span>
+                    <span class="emoji-big">🧠</span>
+                    <span>Tech Hustle</span>
                     <span class="badge">v2.0 · clay</span>
                 </div>
                 <nav class="nav-links">
-                    <a href="#archetypes">🎭 Archetypes</a>
-                    <a href="#quiz">🚩 Quiz</a>
-                    <a href="#tactics">🛡️ Tactics</a>
+                    <a href="#archetypes">📌 Topics</a>
+                    <a href="#quiz">🧪 Quiz</a>
+                    <a href="#tactics">⚡ Tactics</a>
                     <a href="#resources">📚 Resources</a>
                 </nav>
             </header>
 
-            <!-- HERO -->
             <section class="hero">
                 <h1>
-                    Don’t be a <span class="highlight">toxic</span> person.<br />
-                    Learn to spot one. 🧐
+                    Master the <span class="highlight">digital hustle</span>.<br />
+                    Domains, DNS, DMCA, deployment & more.
                 </h1>
                 <p>
-                    🍭 A super colorful, squishy guide to recognizing toxic behavior,
-                    protecting your peace, and becoming a better human.
+                    ⚡ A hands‑on, squishy guide to web tech, AI betting formulas, app monetization,
+                    unlimited cell plans – and everything in between.
                 </p>
                 <div class="cta-group">
-                    <a href="#quiz" class="btn btn-primary">🚩 Take the Quiz</a>
-                    <a href="#archetypes" class="btn btn-pink">Meet the Cast</a>
+                    <a href="#quiz" class="btn btn-primary">🧪 Test Your Skills</a>
+                    <a href="#archetypes" class="btn btn-pink">📌 Explore Topics</a>
                 </div>
             </section>
 
-            <!-- ARCHETYPES -->
             <section id="archetypes">
-                <h2 class="section-title">
-                    <span class="emoji">🎭</span> Toxic Archetypes
-                </h2>
-                <p class="section-desc">
-                    ✨ Know thy enemy — these are the toxic personalities you’ll meet in the wild.
-                </p>
+                <h2 class="section-title"><span class="emoji">📌</span> Core Hustle Topics</h2>
+                <p class="section-desc">⚙️ Everything you need to dominate the digital landscape.</p>
 
                 <div class="archetype-grid">
                     <div class="archetype-card">
-                        <div class="icon">👑</div>
-                        <h3>The Gaslight King</h3>
-                        <div class="sub">🔄 Reality Twister</div>
-                        <p>“That never happened.” “You’re too sensitive.” They rewrite history to make you question your own mind.</p>
-                        <div class="warning">⚠️ <strong>Red flag:</strong> You apologize for things you didn’t do.</div>
-                        <div class="tip">💡 <strong>Survival tip:</strong> Keep a journal. Trust your gut, not their version.</div>
+                        <div class="icon">🌐</div>
+                        <h3>Domains & DNS</h3>
+                        <div class="sub">⚡ Nameservers, A/AAAA, CNAME</div>
+                        <p>Register domains, point them to your server, and manage DNS records like a pro.</p>
+                        <div class="warning">⚠️ <strong>Pro tip:</strong> Always use Cloudflare for free CDN + DDoS protection.</div>
+                        <div class="tip">💡 <strong>Action:</strong> Set up your first domain in 10 minutes.</div>
                     </div>
                     <div class="archetype-card">
-                        <div class="icon">🧛</div>
-                        <h3>The Energy Vampire</h3>
-                        <div class="sub">🫠 Drama Magnet</div>
-                        <p>Every conversation is a crisis. They drain your emotional battery and leave you exhausted.</p>
-                        <div class="warning">⚠️ <strong>Red flag:</strong> You feel tired after every interaction.</div>
-                        <div class="tip">💡 <strong>Survival tip:</strong> Set time limits. “I’ve got 10 minutes — what’s up?”</div>
+                        <div class="icon">⚖️</div>
+                        <h3>DMCA Takedowns</h3>
+                        <div class="sub">🛡️ Protect your content</div>
+                        <p>File and respond to DMCA notices – know your rights and how to defend your work.</p>
+                        <div class="warning">⚠️ <strong>Red flag:</strong> Ignoring a valid DMCA can get your site taken down.</div>
+                        <div class="tip">💡 <strong>Survival tip:</strong> Use a DMCA agent service for automated handling.</div>
                     </div>
                     <div class="archetype-card">
-                        <div class="icon">🎯</div>
-                        <h3>The Blame Shifter</h3>
-                        <div class="sub">🤷 Responsibility Dodger</div>
-                        <p>Nothing is ever their fault. It’s the traffic, the weather, your tone — anything but them.</p>
-                        <div class="warning">⚠️ <strong>Red flag:</strong> They never say “I was wrong.”</div>
-                        <div class="tip">💡 <strong>Survival tip:</strong> Use “I” statements. Don’t accept their projections.</div>
+                        <div class="icon">🚀</div>
+                        <h3>Deploy Websites</h3>
+                        <div class="sub">📦 Netlify, Vercel, AWS</div>
+                        <p>Launch static sites, full‑stack apps, and serverless functions with zero downtime.</p>
+                        <div class="warning">⚠️ <strong>Pro tip:</strong> Use CI/CD pipelines to automate deployments.</div>
+                        <div class="tip">💡 <strong>Action:</strong> Deploy a free static site in 5 minutes.</div>
                     </div>
                     <div class="archetype-card">
-                        <div class="icon">📢</div>
-                        <h3>The One-Upper</h3>
-                        <div class="sub">🏆 Competition Addict</div>
-                        <p>Whatever you’ve done, they’ve done it better. Your achievements are a threat to their ego.</p>
-                        <div class="warning">⚠️ <strong>Red flag:</strong> They turn your good news into their story.</div>
-                        <div class="tip">💡 <strong>Survival tip:</strong> Don’t play the game. “That’s great — anyway…”</div>
+                        <div class="icon">🎨</div>
+                        <h3>Image Editing</h3>
+                        <div class="sub">🖼️ GIMP, Photopea, AI tools</div>
+                        <p>Edit images like a pro – remove backgrounds, retouch, and create thumbnails that pop.</p>
+                        <div class="warning">⚠️ <strong>Pro tip:</strong> Use batch processing for bulk image edits.</div>
+                        <div class="tip">💡 <strong>Action:</strong> Master the magic wand tool in 10 minutes.</div>
+                    </div>
+                    <div class="archetype-card">
+                        <div class="icon">🤖</div>
+                        <h3>Sports Betting AI</h3>
+                        <div class="sub">📊 Predictive models & formulas</div>
+                        <p>Build AI models that analyze stats, predict outcomes, and find value bets.</p>
+                        <div class="warning">⚠️ <strong>Red flag:</strong> Never bet more than you can afford to lose.</div>
+                        <div class="tip">💡 <strong>Survival tip:</strong> Start with historical data and backtest your models.</div>
+                    </div>
+                    <div class="archetype-card">
+                        <div class="icon">📱</div>
+                        <h3>App Monetization</h3>
+                        <div class="sub">💰 Ads, subscriptions, in‑app purchases</div>
+                        <p>Turn your apps into cash machines – explore ad networks, freemium models, and more.</p>
+                        <div class="warning">⚠️ <strong>Pro tip:</strong> A/B test your pricing to maximize revenue.</div>
+                        <div class="tip">💡 <strong>Action:</strong> Add a simple ad banner to your app today.</div>
+                    </div>
+                    <div class="archetype-card">
+                        <div class="icon">📶</div>
+                        <h3>Unlimited Cell Plans</h3>
+                        <div class="sub">📱 Cheap, unlimited data</div>
+                        <p>Find the best unlimited phone plans – from MVNOs to hidden carrier deals.</p>
+                        <div class="warning">⚠️ <strong>Red flag:</strong> Watch out for throttling after a certain GB.</div>
+                        <div class="tip">💡 <strong>Action:</strong> Compare plans on a site like WhistleOut.</div>
                     </div>
                 </div>
             </section>
 
-            <!-- QUIZ -->
             <section id="quiz">
-                <h2 class="section-title">
-                    <span class="emoji">🚩</span> Red‑Flag Quiz
-                </h2>
-                <p class="section-desc">
-                    🧠 Test your toxic-spotting skills. Pick the <strong>best</strong> response.
-                </p>
+                <h2 class="section-title"><span class="emoji">🧪</span> Tech Hustle Quiz</h2>
+                <p class="section-desc">🧠 Test your knowledge on domains, DNS, DMCA, and deployment.</p>
 
                 <div class="quiz-section" id="quizContainer">
                     <div class="question" id="quizQuestion">Loading question…</div>
                     <div class="quiz-options" id="quizOptions"></div>
-                    <div class="quiz-feedback" id="quizFeedback">
-                        💬 Select a squishy answer above.
-                    </div>
-                    <button class="btn btn-green" id="quizNext" style="margin-top: 1.2rem;">
-                        Next Question →
-                    </button>
+                    <div class="quiz-feedback" id="quizFeedback">💬 Select a squishy answer above.</div>
+                    <button class="btn btn-green" id="quizNext" style="margin-top: 1.2rem;">Next Question →</button>
                 </div>
             </section>
 
-            <!-- TACTICS -->
             <section id="tactics">
-                <h2 class="section-title">
-                    <span class="emoji">🛡️</span> Survival Tactics
-                </h2>
-                <p class="section-desc">
-                    ⚡ Battle‑tested strategies to protect your peace.
-                </p>
+                <h2 class="section-title"><span class="emoji">⚡</span> Hustle Tactics</h2>
+                <p class="section-desc">🔧 Step‑by‑step moves to level up your digital game.</p>
 
                 <div class="tactics-grid">
                     <div class="tactic-item">
                         <div class="num">01</div>
-                        <h4>Gray Rock</h4>
-                        <p>Be boring. Give short, neutral answers. Starve the drama of attention.</p>
+                        <h4>Domain Hunt</h4>
+                        <p>Use tools like Namecheap or Porkbun to find cheap, brandable domains.</p>
                     </div>
                     <div class="tactic-item">
                         <div class="num">02</div>
-                        <h4>Broken Record</h4>
-                        <p>Repeat your boundary calmly. “I’m not discussing this” ×3</p>
+                        <h4>DNS Audit</h4>
+                        <p>Check your DNS records with `dig` or online tools – fix misconfigurations.</p>
                     </div>
                     <div class="tactic-item">
                         <div class="num">03</div>
-                        <h4>Name the Game</h4>
-                        <p>Call out the behavior. “It feels like you’re deflecting.” Stops them cold.</p>
+                        <h4>DMCA Shield</h4>
+                        <p>Register your work with the U.S. Copyright Office to strengthen takedown requests.</p>
                     </div>
                     <div class="tactic-item">
                         <div class="num">04</div>
-                        <h4>Exit Strategy</h4>
-                        <p>Always have an out. “I have to take this call.” Walk away with dignity.</p>
+                        <h4>One‑Click Deploy</h4>
+                        <p>Connect your GitHub repo to Netlify/Vercel – auto‑deploy on every push.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- RESOURCES -->
             <section id="resources">
-                <h2 class="section-title">
-                    <span class="emoji">📚</span> Resources &amp; Reading
-                </h2>
-                <p class="section-desc">
-                    📖 Books, tools, and scripts to deepen your toxic‑proofing.
-                </p>
+                <h2 class="section-title"><span class="emoji">📚</span> Essential Resources</h2>
+                <p class="section-desc">📖 Tools, communities, and templates to supercharge your hustle.</p>
 
                 <div class="resources-grid">
                     <div class="resource-card">
-                        <h4>📕 <em>The Gift of Fear</em></h4>
-                        <p>Gavin de Becker — trust your intuition and spot danger before it strikes.</p>
-                        <a href="#" class="link">→ Read summary</a>
+                        <h4>🌐 <em>DNS Checker</em></h4>
+                        <p>Verify your DNS propagation worldwide in real‑time.</p>
+                        <a href="#" class="link">→ Check DNS</a>
                     </div>
                     <div class="resource-card">
-                        <h4>🧠 <em>Why Does He Do That?</em></h4>
-                        <p>Lundy Bancroft — inside the minds of angry and controlling people.</p>
-                        <a href="#" class="link">→ Explore</a>
+                        <h4>⚖️ <em>DMCA Takedown Generator</em></h4>
+                        <p>Create professional takedown notices in seconds.</p>
+                        <a href="#" class="link">→ Generate</a>
                     </div>
                     <div class="resource-card">
-                        <h4>🛋️ Therapy &amp; Support</h4>
-                        <p>Professional help is a power‑up. Find a therapist today.</p>
-                        <a href="#" class="link">→ Find help</a>
+                        <h4>🚀 <em>Deployment Templates</em></h4>
+                        <p>Start with pre‑built templates for static, JAMstack, and serverless apps.</p>
+                        <a href="#" class="link">→ Get templates</a>
                     </div>
                     <div class="resource-card">
-                        <h4>📝 Boundary Scripts</h4>
-                        <p>Real phrases to shut down toxicity fast.</p>
-                        <a href="#" class="link">→ Get scripts</a>
+                        <h4>📊 <em>Betting Model Datasets</em></h4>
+                        <p>Free historical sports data to train your AI models.</p>
+                        <a href="#" class="link">→ Download data</a>
                     </div>
                 </div>
             </section>
 
-            <!-- FOOTER -->
             <footer class="site-footer">
-                <div>
-                    <strong>🧸 Toxic Survival Guide</strong> &nbsp;·&nbsp; claymorphism edition
-                </div>
-                <div class="disclaimer">
-                    ⚡ For educational and entertainment purposes. If you're in danger, seek professional help immediately.
-                </div>
+                <div><strong>🧠 Tech Hustle Guide</strong> &nbsp;·&nbsp; claymorphism edition</div>
+                <div class="disclaimer">⚡ For educational and entertainment purposes. Always respect intellectual property and local laws.</div>
             </footer>
-
         </div>
-        <!-- /container -->
     </div>
-    <!-- /view-guide -->
 
     <!-- ============================================================
-    VIEW 3 – PATREON+ AI
+    VIEW 3 – PATREON+ AI (UNCHANGED)
     ============================================================ -->
     <div id="view-patreon" class="view">
-        <!-- Background Blobs -->
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
-
         <div class="container">
-
-            <!-- HERO SECTION -->
             <section id="hero">
                 <div class="hero-badge"><span>🏠</span> 100% Family-Friendly Content</div>
                 <h1 class="hero-title">Patreon+ AI Studio</h1>
@@ -2382,32 +2417,17 @@
                     <a href="#about" class="btn-secondary">Learn More ↓</a>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">12K+</div>
-                        <div class="stat-label">Safe Prompts Generated</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">240+</div>
-                        <div class="stat-label">Creative Models</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Family Friendly Vibe</div>
-                    </div>
+                    <div class="stat-item"><div class="stat-number">12K+</div><div class="stat-label">Safe Prompts Generated</div></div>
+                    <div class="stat-item"><div class="stat-number">240+</div><div class="stat-label">Creative Models</div></div>
+                    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Family Friendly Vibe</div></div>
                 </div>
             </section>
 
-            <!-- ABOUT -->
             <section id="about">
                 <div class="about-grid">
                     <div class="about-text">
                         <h2>Why <span>Family-Friendly</span> AI?</h2>
-                        <p>
-                            We believe creativity should have no limits — except one: keeping it
-                            wholesome, inspiring, and appropriate for all ages. Patreon+ AI is
-                            built from the ground up with strict content filters, curated prompts,
-                            and a vibrant community that celebrates playful, expressive art.
-                        </p>
+                        <p>We believe creativity should have no limits — except one: keeping it wholesome, inspiring, and appropriate for all ages. Patreon+ AI is built from the ground up with strict content filters, curated prompts, and a vibrant community that celebrates playful, expressive art.</p>
                         <ul>
                             <li>Rigorous NSFW filter on all generated content</li>
                             <li>Curated prompt library for all ages</li>
@@ -2415,26 +2435,16 @@
                             <li>Moderated community sharing space</li>
                         </ul>
                     </div>
-                    <div class="about-visual">
-                        🌈✨🎨
-                    </div>
+                    <div class="about-visual">🌈✨🎨</div>
                 </div>
             </section>
 
-            <!-- GALLERY -->
             <section id="gallery">
                 <h2 class="section-title">✨ Featured Artworks</h2>
-                <p class="section-sub">
-                    Explore our latest family-friendly AI creations — each piece is crafted with
-                    care, whimsy, and a dash of magic.
-                </p>
+                <p class="section-sub">Explore our latest family-friendly AI creations — each piece is crafted with care, whimsy, and a dash of magic.</p>
                 <div class="gallery-grid">
-
-                    <!-- Card 1 -->
                     <div class="gallery-card" data-tilt>
-                        <div class="card-img">
-                            <img src="https://64.media.tumblr.com/430116f37f469d10f5441a637daef7ef/e063be1fd2e8021a-4f/s1280x1920/2317b848e02f110d964922bffb2c5fa0be11753e.pnj" alt="The Goon Family" loading="lazy" />
-                        </div>
+                        <div class="card-img"><img src="https://64.media.tumblr.com/430116f37f469d10f5441a637daef7ef/e063be1fd2e8021a-4f/s1280x1920/2317b848e02f110d964922bffb2c5fa0be11753e.pnj" alt="The Goon Family" loading="lazy" /></div>
                         <div class="card-body">
                             <h3>👪 The Goon Family</h3>
                             <p class="desc">A quirky, expressive cast of characters — each with their own wild personality.</p>
@@ -2445,12 +2455,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Card 2 -->
                     <div class="gallery-card" data-tilt>
-                        <div class="card-img">
-                            <img src="https://64.media.tumblr.com/35dfe051abacf53e66248a22d98774f3/80919e5c69c1a8f7-05/s1280x1920/902b59cf56e6335b5f49fecf1d6e4f2730dc9a22.pnj" alt="Family Yoga" loading="lazy" />
-                        </div>
+                        <div class="card-img"><img src="https://64.media.tumblr.com/35dfe051abacf53e66248a22d98774f3/80919e5c69c1a8f7-05/s1280x1920/902b59cf56e6335b5f49fecf1d6e4f2730dc9a22.pnj" alt="Family Yoga" loading="lazy" /></div>
                         <div class="card-body">
                             <h3>🧘 Family Yoga</h3>
                             <p class="desc">Stretch, breathe, and laugh together — wellness with a whimsical twist.</p>
@@ -2461,12 +2467,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Card 3 -->
                     <div class="gallery-card" data-tilt>
-                        <div class="card-img">
-                            <img src="https://64.media.tumblr.com/632e82fd9bb7b852d7995264bc91f33d/6bccb16b140cec91-0f/s1280x1920/b7014ba44ab133206b5bee1b418cd6066ea260a3.pnj" alt="Make Up Artist" loading="lazy" />
-                        </div>
+                        <div class="card-img"><img src="https://64.media.tumblr.com/632e82fd9bb7b852d7995264bc91f33d/6bccb16b140cec91-0f/s1280x1920/b7014ba44ab133206b5bee1b418cd6066ea260a3.pnj" alt="Make Up Artist" loading="lazy" /></div>
                         <div class="card-body">
                             <h3>💄 Make Up Artist</h3>
                             <p class="desc">Bold looks, vibrant colors — where face paint becomes fine art.</p>
@@ -2477,145 +2479,90 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
 
-            <!-- FEATURES -->
             <section id="features">
                 <h2 class="section-title">🌟 Why Join Patreon+ AI?</h2>
                 <p class="section-sub">We make AI art safe, social, and stunningly creative for everyone.</p>
                 <div class="features-grid">
-                    <div class="feature-item">
-                        <span class="feature-icon">🛡️</span>
-                        <h4>Safe Filter</h4>
-                        <p>Advanced NSFW detection ensures every prompt and output stays family-friendly.</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🎭</span>
-                        <h4>Curated Styles</h4>
-                        <p>Hundreds of hand-picked styles — from watercolor to cyberpunk — all safe for all ages.</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">👥</span>
-                        <h4>Community Hub</h4>
-                        <p>Share your creations, remix prompts, and vote on weekly family-friendly challenges.</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🧠</span>
-                        <h4>Model Library</h4>
-                        <p>Access 240+ AI models optimized for whimsical, expressive, and narrative art.</p>
-                    </div>
+                    <div class="feature-item"><span class="feature-icon">🛡️</span><h4>Safe Filter</h4><p>Advanced NSFW detection ensures every prompt and output stays family-friendly.</p></div>
+                    <div class="feature-item"><span class="feature-icon">🎭</span><h4>Curated Styles</h4><p>Hundreds of hand-picked styles — from watercolor to cyberpunk — all safe for all ages.</p></div>
+                    <div class="feature-item"><span class="feature-icon">👥</span><h4>Community Hub</h4><p>Share your creations, remix prompts, and vote on weekly family-friendly challenges.</p></div>
+                    <div class="feature-item"><span class="feature-icon">🧠</span><h4>Model Library</h4><p>Access 240+ AI models optimized for whimsical, expressive, and narrative art.</p></div>
                 </div>
             </section>
 
-            <!-- HOW IT WORKS -->
             <section id="how-it-works">
                 <h2 class="section-title">🚀 How It Works</h2>
                 <p class="section-sub">Get started in three simple steps — no complicated setups.</p>
                 <div class="steps">
-                    <div class="step">
-                        <div class="step-num">01</div>
-                        <div class="step-content">
-                            <h4>Pick a Safe Prompt</h4>
-                            <p>Browse our library of 12,000+ family-friendly prompts or craft your own using our guided tools.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">02</div>
-                        <div class="step-content">
-                            <h4>Choose Your Model</h4>
-                            <p>Select from 240+ AI models — each tuned for specific styles like cartoon, realism, or fantasy.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">03</div>
-                        <div class="step-content">
-                            <h4>Generate &amp; Share</h4>
-                            <p>Watch your AI art come to life in seconds. Share it with our wholesome community for feedback and fun.</p>
-                        </div>
-                    </div>
+                    <div class="step"><div class="step-num">01</div><div class="step-content"><h4>Pick a Safe Prompt</h4><p>Browse our library of 12,000+ family-friendly prompts or craft your own using our guided tools.</p></div></div>
+                    <div class="step"><div class="step-num">02</div><div class="step-content"><h4>Choose Your Model</h4><p>Select from 240+ AI models — each tuned for specific styles like cartoon, realism, or fantasy.</p></div></div>
+                    <div class="step"><div class="step-num">03</div><div class="step-content"><h4>Generate &amp; Share</h4><p>Watch your AI art come to life in seconds. Share it with our wholesome community for feedback and fun.</p></div></div>
                 </div>
             </section>
 
-            <!-- TESTIMONIALS -->
             <section id="testimonials">
                 <h2 class="section-title">💬 Community Love</h2>
                 <p class="section-sub">Hear from our family of creators who keep it safe and spectacular.</p>
                 <div class="testimonial-grid">
-                    <div class="testimonial">
-                        <p class="quote">“Finally — an AI art platform I can let my kids explore without worrying. The creativity is off the charts!”</p>
-                        <p class="author">— Sarah K.</p>
-                        <p class="role">Parent &amp; Illustrator</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="quote">“The 'Goon Family' prompt is our household favorite. We laugh every time we see the new variations!”</p>
-                        <p class="author">— Marcus T.</p>
-                        <p class="role">Community Member</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="quote">“I love that I can experiment with bold makeup looks and vibrant colors in a completely safe space.”</p>
-                        <p class="author">— Elena R.</p>
-                        <p class="role">Digital Artist</p>
-                    </div>
+                    <div class="testimonial"><p class="quote">“Finally — an AI art platform I can let my kids explore without worrying. The creativity is off the charts!”</p><p class="author">— Sarah K.</p><p class="role">Parent &amp; Illustrator</p></div>
+                    <div class="testimonial"><p class="quote">“The 'Goon Family' prompt is our household favorite. We laugh every time we see the new variations!”</p><p class="author">— Marcus T.</p><p class="role">Community Member</p></div>
+                    <div class="testimonial"><p class="quote">“I love that I can experiment with bold makeup looks and vibrant colors in a completely safe space.”</p><p class="author">— Elena R.</p><p class="role">Digital Artist</p></div>
                 </div>
             </section>
 
-            <!-- BANNER -->
             <section id="banner">
-                <div class="banner-content">
-                    <h2>✨ Join the Creative Movement</h2>
-                    <p>Be part of a community that celebrates imagination, safety, and artistic freedom — all in one place.</p>
-                </div>
+                <div class="banner-content"><h2>✨ Join the Creative Movement</h2><p>Be part of a community that celebrates imagination, safety, and artistic freedom — all in one place.</p></div>
             </section>
 
-            <!-- FOOTER -->
             <footer>
                 <div class="footer-grid">
-                    <div class="footer-brand">
-                        <div class="nav-logo" style="font-size:1.8rem;">✦ Patreon+ AI</div>
-                        <p>Creative AI Studio — where imagination meets pixels, 100% family-friendly.</p>
-                    </div>
-                    <div class="footer-col">
-                        <h5>Explore</h5>
-                        <a href="#gallery">Gallery</a>
-                        <a href="#features">Features</a>
-                        <a href="#how-it-works">Guide</a>
-                    </div>
-                    <div class="footer-col">
-                        <h5>Community</h5>
-                        <a href="#">Discord</a>
-                        <a href="#">Reddit</a>
-                        <a href="#">Instagram</a>
-                    </div>
-                    <div class="footer-col">
-                        <h5>Legal</h5>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                        <a href="#">Content Policy</a>
-                    </div>
+                    <div class="footer-brand"><div class="nav-logo" style="font-size:1.8rem;">✦ Patreon+ AI</div><p>Creative AI Studio — where imagination meets pixels, 100% family-friendly.</p></div>
+                    <div class="footer-col"><h5>Explore</h5><a href="#gallery">Gallery</a><a href="#features">Features</a><a href="#how-it-works">Guide</a></div>
+                    <div class="footer-col"><h5>Community</h5><a href="#">Discord</a><a href="#">Reddit</a><a href="#">Instagram</a></div>
+                    <div class="footer-col"><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Content Policy</a></div>
                 </div>
-                <div class="footer-bottom">
-                    ✦ Patreon+ AI — Built with <strong>❤️</strong>, creativity, and a <strong>🏠 family-first</strong> promise. All rights reserved.
-                </div>
+                <div class="footer-bottom">✦ Patreon+ AI — Built with <strong>❤️</strong>, creativity, and a <strong>🏠 family-first</strong> promise. All rights reserved.</div>
             </footer>
-
         </div>
-        <!-- /container -->
-
-        <!-- Hidden Stripe container for the waitlist button -->
         <div class="stripe-container" id="stripeContainer">
-            <stripe-buy-button
-                buy-button-id="buy_btn_1To1ABFRbDEWBIuImlKSGB0L"
-                publishable-key="pk_live_51Tb3oKFRbDEWBIuIdJxw3zJmH9u75HuAMcC8wVf5umYIRcauPcVEpFqmQhTMWH9ETfyPEgN3LpYl5kQwrTUn0fKf00hRARMgRc"
-            >
-            </stripe-buy-button>
+            <stripe-buy-button buy-button-id="buy_btn_1To1ABFRbDEWBIuImlKSGB0L" publishable-key="pk_live_51Tb3oKFRbDEWBIuIdJxw3zJmH9u75HuAMcC8wVf5umYIRcauPcVEpFqmQhTMWH9ETfyPEgN3LpYl5kQwrTUn0fKf00hRARMgRc"></stripe-buy-button>
         </div>
     </div>
-    <!-- /view-patreon -->
 
     <!-- ============================================================
-    JAVASCRIPT – combined for all views
+    VIEW 4 – SUBSCRIBE (NEW)
+    ============================================================ -->
+    <div id="view-subscribe" class="view">
+        <div class="subscribe-wrapper">
+            <span class="decor-emoji">💳</span>
+            <h1 class="subscribe-title">Subscribe</h1>
+            <p class="subscribe-sub">Choose your payment method to support the hustle.</p>
+
+            <!-- PayPal -->
+            <div class="payment-box">
+                <h3>Pay with PayPal</h3>
+                <div id="subscribe-paypal-container"></div>
+            </div>
+
+            <!-- Stripe -->
+            <div class="payment-box">
+                <h3>Pay with Stripe</h3>
+                <stripe-buy-button
+                    buy-button-id="buy_btn_1To1ABFRbDEWBIuImlKSGB0L"
+                    publishable-key="pk_live_51Tb3oKFRbDEWBIuIdJxw3zJmH9u75HuAMcC8wVf5umYIRcauPcVEpFqmQhTMWH9ETfyPEgN3LpYl5kQwrTUn0fKf00hRARMgRc"
+                >
+                </stripe-buy-button>
+            </div>
+
+            <div class="subscribe-result" id="subscribeResult">✨ Ready to subscribe?</div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    JAVASCRIPT – combined
     ============================================================ -->
     <script async src="https://js.stripe.com/v3/buy-button.js">
     </script>
@@ -2628,7 +2575,8 @@
             const views = {
                 claycraft: document.getElementById('view-claycraft'),
                 guide: document.getElementById('view-guide'),
-                patreon: document.getElementById('view-patreon')
+                patreon: document.getElementById('view-patreon'),
+                subscribe: document.getElementById('view-subscribe')
             };
 
             tabBtns.forEach(btn => {
@@ -2641,13 +2589,16 @@
                     });
                     document.getElementById(viewId).classList.add('active');
 
+                    // Render PayPal for the specific view if needed
                     if (viewId === 'view-claycraft') {
                         renderPayPal();
+                    } else if (viewId === 'view-subscribe') {
+                        renderSubscribePayPal();
                     }
                 });
             });
 
-            // ---- PayPal Rendering ----
+            // ---- PayPal for Scum Guide tab ----
             let paypalRendered = false;
 
             function renderPayPal() {
@@ -2664,9 +2615,7 @@
                     paypal.Buttons({
                         createOrder: function(data, actions) {
                             return actions.order.create({
-                                purchase_units: [{
-                                    amount: { value: '10.00' }
-                                }]
+                                purchase_units: [{ amount: { value: '10.00' } }]
                             });
                         },
                         onApprove: function(data, actions) {
@@ -2687,7 +2636,45 @@
                 }
             }
 
-            // ---- VIEW 1: Scum Guide scripts ----
+            // ---- PayPal for Subscribe tab ----
+            let subscribePaypalRendered = false;
+
+            function renderSubscribePayPal() {
+                if (subscribePaypalRendered) return;
+                if (typeof paypal === 'undefined' || !paypal.Buttons) {
+                    setTimeout(renderSubscribePayPal, 500);
+                    return;
+                }
+                const container = document.getElementById('subscribe-paypal-container');
+                if (!container) return;
+                if (container.children.length > 0) return;
+
+                try {
+                    paypal.Buttons({
+                        createOrder: function(data, actions) {
+                            return actions.order.create({
+                                purchase_units: [{ amount: { value: '10.00' } }]
+                            });
+                        },
+                        onApprove: function(data, actions) {
+                            return actions.order.capture().then(function(details) {
+                                document.getElementById('subscribeResult').innerHTML =
+                                    '✅ PayPal transaction completed by ' + details.payer.name
+                                    .given_name;
+                            });
+                        },
+                        onError: function(err) {
+                            document.getElementById('subscribeResult').innerHTML =
+                                '❌ PayPal error: ' + err.message;
+                        }
+                    }).render('#subscribe-paypal-container');
+                    subscribePaypalRendered = true;
+                } catch (e) {
+                    console.warn('Subscribe PayPal render error:', e);
+                }
+            }
+
+            // ---- VIEW 1: Scum Guide scripts (unchanged) ----
             const container = document.getElementById('confettiDots');
             if (container) {
                 const colors = ['#F55F9A', '#F6C33A', '#73C8F7', '#4EA8F5', '#FF8AA5', '#FF6AAE'];
@@ -2742,7 +2729,7 @@
                         boxShadow: '0 12px 40px rgba(0,0,0,0.25)',
                         zIndex: '99999',
                         opacity: '0',
-                        transition: 'opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                        transition: 'opacity 0.4s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1)',
                         pointerEvents: 'none',
                         border: '2px solid rgba(255,255,255,0.15)',
                         backdropFilter: 'blur(4px)',
@@ -2760,7 +2747,6 @@
                 });
             }
 
-            // Platform tilt
             const platform = document.querySelector('#view-claycraft .platform');
             if (platform && window.innerWidth > 768) {
                 let isTiltEnabled = true;
@@ -2787,14 +2773,13 @@
                 });
                 document.addEventListener('mouseleave', function() {
                     platform.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg)';
-                    platform.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                    platform.style.transition = 'transform 0.6s cubic-bezier(0.34,1.56,0.64,1)';
                 });
                 if ('ontouchstart' in window) {
                     isTiltEnabled = false;
                 }
             }
 
-            // Card sparkles
             const cards = document.querySelectorAll('#view-claycraft .clay-card');
             cards.forEach((card) => {
                 card.addEventListener('mouseenter', function() {
@@ -2810,8 +2795,8 @@
                                     left: ${20 + Math.random() * 60}%;
                                     top: ${10 + Math.random() * 60}%;
                                     opacity: 0;
-                                    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-                                    transform: translate(0, 0) scale(0);
+                                    transition: all 0.8s cubic-bezier(0.34,1.56,0.64,1);
+                                    transform: translate(0,0) scale(0);
                                 `;
                         this.appendChild(spark);
                         requestAnimationFrame(() => {
@@ -2829,7 +2814,6 @@
                 });
             });
 
-            // Keyboard "C" cheer
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'c' || e.key === 'C') {
                     e.preventDefault();
@@ -2845,7 +2829,7 @@
                         fontSize: '6rem',
                         zIndex: '99999',
                         pointerEvents: 'none',
-                        transition: 'all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                        transition: 'all 0.7s cubic-bezier(0.34,1.56,0.64,1)',
                         opacity: '0',
                         filter: 'drop-shadow(0 12px 30px rgba(0,0,0,0.15))',
                     });
@@ -2862,117 +2846,122 @@
                 }
             });
 
-            // ---- VIEW 2: Toxic Guide quiz ----
-            const questions = [{
-                question: 'A colleague takes credit for your work. They say, “I just streamlined the process.” What’s your move?',
+            // ---- VIEW 2: Tech Hustle Quiz ----
+            const techQuestions = [{
+                question: 'What does DNS stand for?',
                 options: [
-                    'Stay quiet — avoid conflict.',
-                    'Publicly call them out in front of everyone.',
-                    'Privately say: “I noticed my work was presented as yours. Let’s fix that.”',
-                    'Sabotage their next project.'
-                ],
-                correct: 2,
-                explanation: '✅ Direct, calm, private confrontation protects your reputation without escalating drama.'
-            }, {
-                question: 'Your friend constantly cancels last minute with flimsy excuses. What do you do?',
-                options: [
-                    'Keep inviting them — they’ll change eventually.',
-                    'Ghost them.',
-                    'Say: “I value our time, but last‑minute cancels don’t work for me.”',
-                    'Post a passive‑aggressive status.'
-                ],
-                correct: 2,
-                explanation: '✅ Clear boundary + “I” statement. You express your needs without attacking.'
-            }, {
-                question: 'Someone says: “You’re way too emotional about this.” Which red flag is this?',
-                options: [
-                    'Gaslighting',
-                    'One‑upping',
-                    'Blame shifting',
-                    'Energy vampirism'
+                    'Domain Name System',
+                    'Data Network Server',
+                    'Dynamic Name Service',
+                    'Digital Number System'
                 ],
                 correct: 0,
-                explanation: '✅ Classic gaslighting — they’re invalidating your feelings to avoid accountability.'
+                explanation: '✅ DNS = Domain Name System – it translates domain names to IP addresses.'
             }, {
-                question: 'Your partner checks your phone without asking. When you object, they say, “If you have nothing to hide, why does it matter?” What’s the best response?',
+                question: 'Which DNS record type points a domain to an IPv4 address?',
                 options: [
-                    'Hand over the phone to prove trust.',
-                    'Get angry and start an argument.',
-                    'Say: “Trust is built on respect, not surveillance. I need privacy.”',
-                    'Start checking their phone too.'
+                    'A record',
+                    'AAAA record',
+                    'CNAME record',
+                    'MX record'
                 ],
-                correct: 2,
-                explanation: '✅ Calm, firm boundary. You’re not defensive — you’re asserting a basic right.'
+                correct: 0,
+                explanation: '✅ A record maps a domain to an IPv4 address. AAAA is for IPv6, CNAME for aliases, MX for mail.'
+            }, {
+                question: 'What is the first step when filing a DMCA takedown?',
+                options: [
+                    'Send a cease‑and‑desist letter',
+                    'Identify the infringing work and locate the infringer',
+                    'File a lawsuit immediately',
+                    'Contact your hosting provider'
+                ],
+                correct: 1,
+                explanation: '✅ You must identify the work and the infringer before sending a formal takedown notice.'
+            }, {
+                question: 'Which platform is known for one‑click deployments from Git repositories?',
+                options: [
+                    'AWS EC2',
+                    'Netlify',
+                    'Bluehost',
+                    'GoDaddy'
+                ],
+                correct: 1,
+                explanation: '✅ Netlify and Vercel are famous for automatic Git‑based deployments.'
             }];
 
-            let currentQuestion = 0;
-            let selectedAnswer = null;
-            const questionEl = document.getElementById('quizQuestion');
-            const optionsEl = document.getElementById('quizOptions');
-            const feedbackEl = document.getElementById('quizFeedback');
-            const nextBtn = document.getElementById('quizNext');
+            let currentTechQuestion = 0;
+            let selectedTechAnswer = null;
+            const techQuestionEl = document.getElementById('quizQuestion');
+            const techOptionsEl = document.getElementById('quizOptions');
+            const techFeedbackEl = document.getElementById('quizFeedback');
+            const techNextBtn = document.getElementById('quizNext');
 
-            function renderQuestion(index) {
-                const q = questions[index];
+            function renderTechQuestion(index) {
+                const q = techQuestions[index];
                 if (!q) return;
-                questionEl.textContent = q.question;
-                optionsEl.innerHTML = '';
-                selectedAnswer = null;
-                feedbackEl.innerHTML = '💬 Select a squishy answer above.';
-                nextBtn.textContent = index < questions.length - 1 ? 'Next Question →' : '🔄 Play Again';
+                techQuestionEl.textContent = q.question;
+                techOptionsEl.innerHTML = '';
+                selectedTechAnswer = null;
+                techFeedbackEl.innerHTML = '💬 Select a squishy answer above.';
+                techNextBtn.textContent = index < techQuestions.length - 1 ? 'Next Question →' : '🔄 Play Again';
+
                 q.options.forEach((opt, i) => {
                     const btn = document.createElement('button');
                     btn.textContent = ` ${String.fromCharCode(65 + i)}. ${opt}`;
                     btn.dataset.index = i;
-                    btn.addEventListener('click', () => handleAnswer(i));
-                    optionsEl.appendChild(btn);
+                    btn.addEventListener('click', () => handleTechAnswer(i));
+                    techOptionsEl.appendChild(btn);
                 });
+
                 document.querySelectorAll('#view-guide .quiz-options button').forEach(b => {
                     b.classList.remove('selected', 'correct', 'wrong');
                     b.disabled = false;
                 });
             }
 
-            function handleAnswer(selectedIndex) {
-                const q = questions[currentQuestion];
-                const buttons = optionsEl.querySelectorAll('button');
+            function handleTechAnswer(selectedIndex) {
+                const q = techQuestions[currentTechQuestion];
+                const buttons = techOptionsEl.querySelectorAll('button');
                 buttons.forEach(b => b.disabled = true);
+
                 buttons.forEach((b, i) => {
                     b.classList.remove('selected', 'correct', 'wrong');
                     if (i === q.correct) b.classList.add('correct');
                     if (i === selectedIndex && i !== q.correct) b.classList.add('wrong');
                     if (i === selectedIndex) b.classList.add('selected');
                 });
+
                 const isCorrect = (selectedIndex === q.correct);
-                feedbackEl.innerHTML = isCorrect ?
+                techFeedbackEl.innerHTML = isCorrect ?
                     `🎉 <strong>Exactly!</strong> ${q.explanation}` :
                     `🧐 <strong>Not quite.</strong> ${q.explanation}`;
-                selectedAnswer = selectedIndex;
+                selectedTechAnswer = selectedIndex;
             }
 
-            function goToNext() {
-                if (selectedAnswer === null) {
-                    feedbackEl.innerHTML = '⚠️ Gotta pick one! Click an answer above.';
+            function goToTechNext() {
+                if (selectedTechAnswer === null) {
+                    techFeedbackEl.innerHTML = '⚠️ Gotta pick one! Click an answer above.';
                     return;
                 }
-                if (currentQuestion < questions.length - 1) {
-                    currentQuestion++;
-                    renderQuestion(currentQuestion);
+                if (currentTechQuestion < techQuestions.length - 1) {
+                    currentTechQuestion++;
+                    renderTechQuestion(currentTechQuestion);
                 } else {
-                    currentQuestion = 0;
-                    renderQuestion(currentQuestion);
-                    feedbackEl.innerHTML = '🔄 Quiz reset! Squish that brain again.';
-                    optionsEl.querySelectorAll('button').forEach(b => b.disabled = false);
+                    currentTechQuestion = 0;
+                    renderTechQuestion(currentTechQuestion);
+                    techFeedbackEl.innerHTML = '🔄 Quiz reset! Squish that brain again.';
+                    techOptionsEl.querySelectorAll('button').forEach(b => b.disabled = false);
                 }
-                optionsEl.querySelectorAll('button').forEach(b => b.disabled = false);
+                techOptionsEl.querySelectorAll('button').forEach(b => b.disabled = false);
             }
-            renderQuestion(0);
-            nextBtn.addEventListener('click', goToNext);
+
+            renderTechQuestion(0);
+            techNextBtn.addEventListener('click', goToTechNext);
 
             document.querySelectorAll('#view-guide .resource-card .link').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    feedbackEl.innerHTML = '📖 <em>Resource link</em> — this would take you to a real article in production. (Clay version!)';
+                    techFeedbackEl.innerHTML = '📖 <em>Resource link</em> — this would take you to a real tool in production. (Clay version!)';
                 });
             });
 
@@ -3023,10 +3012,12 @@
                 });
             }
 
-            // ---- Initial PayPal render ----
+            // ---- Initial renders ----
             renderPayPal();
+            // The subscribe tab isn't active by default, but we render it when switched.
+            // If the user clicks subscribe later, it will render then.
 
-            console.log('🧱 Scum Guide + 🧸 Toxic Guide + ✨ Patreon+ AI — all loaded.');
+            console.log('🧱 Scum Guide + 🧠 Tech Hustle + ✨ Patreon+ AI + 💳 Subscribe — all loaded.');
         })();
     </script>
 
