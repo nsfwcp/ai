@@ -104,7 +104,7 @@
         }
 
         /* ============================================================
-               VIEW 1 – SCUM GUIDE (UNCHANGED)
+               VIEW 1 – SCUM GUIDE (PAYMENT SECTION REMOVED)
                ============================================================ */
         #view-claycraft {
             --sky-blue: #73C8F7;
@@ -581,52 +581,6 @@
             color: var(--bubblegum);
         }
 
-        #view-claycraft .payment-section {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 2px dashed rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 3;
-            text-align: center;
-        }
-        #view-claycraft .payment-section h2 {
-            font-family: 'Fredoka One', cursive;
-            font-size: 2rem;
-            color: var(--charcoal);
-            margin-bottom: 1.5rem;
-        }
-        #view-claycraft .payment-box {
-            background: var(--white);
-            border-radius: 40px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 8px 0 var(--light-gray), 0 12px 30px var(--shadow-color);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #view-claycraft .payment-box h3 {
-            font-family: 'Nunito', sans-serif;
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--charcoal);
-            margin-bottom: 0.8rem;
-        }
-        #view-claycraft .payment-box #paypal-button-container {
-            min-height: 40px;
-        }
-        #view-claycraft .payment-box stripe-buy-button {
-            display: block;
-            width: 100%;
-        }
-        #view-claycraft .payment-result {
-            margin-top: 0.8rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            font-size: 1rem;
-        }
-
         #view-claycraft .ribbon-deco {
             position: absolute;
             pointer-events: none;
@@ -722,9 +676,6 @@
             }
             #view-claycraft .confetti-dots {
                 display: none;
-            }
-            #view-claycraft .payment-box {
-                max-width: 100%;
             }
         }
         @media (max-width: 480px) {
@@ -1317,7 +1268,7 @@
         }
 
         /* ============================================================
-               VIEW 3 – PATREON+ AI (UNCHANGED)
+               VIEW 3 – PATREON+ AI (FULLY RESTORED)
                ============================================================ */
         #view-patreon {
             font-family: 'Inter', -apple-system, sans-serif;
@@ -2030,7 +1981,7 @@
         }
 
         /* ============================================================
-               VIEW 4 – SUBSCRIBE (NEW)
+               VIEW 4 – SUBSCRIBE (STANDALONE PAYMENT)
                ============================================================ */
         #view-subscribe {
             --cream: #FFF8E7;
@@ -2145,7 +2096,7 @@
     </nav>
 
     <!-- ============================================================
-    VIEW 1 – SCUM GUIDE (UNCHANGED)
+    VIEW 1 – SCUM GUIDE (PAYMENT SECTION REMOVED)
     ============================================================ -->
     <div id="view-claycraft" class="view active">
         <div class="noise-overlay"></div>
@@ -2206,20 +2157,7 @@
                 </div>
 
                 <div class="footer-note">✦ made with <span>🖤</span> &amp; scum ✦</div>
-
-                <div class="payment-section">
-                    <h2>💳 Support the Scum</h2>
-                    <div class="payment-box">
-                        <h3>Pay with PayPal</h3>
-                        <div id="paypal-button-container"></div>
-                    </div>
-                    <div class="payment-box">
-                        <h3>Pay with Stripe</h3>
-                        <stripe-buy-button buy-button-id="buy_btn_1To1ABFRbDEWBIuImlKSGB0L" publishable-key="pk_live_51Tb3oKFRbDEWBIuIdJxw3zJmH9u75HuAMcC8wVf5umYIRcauPcVEpFqmQhTMWH9ETfyPEgN3LpYl5kQwrTUn0fKf00hRARMgRc">
-                        </stripe-buy-button>
-                    </div>
-                    <div class="payment-result" id="paymentResult"></div>
-                </div>
+                <!-- Payment section DELETED from this tab -->
             </div>
         </div>
     </div>
@@ -2398,7 +2336,7 @@
     </div>
 
     <!-- ============================================================
-    VIEW 3 – PATREON+ AI (UNCHANGED)
+    VIEW 3 – PATREON+ AI (FULLY RESTORED)
     ============================================================ -->
     <div id="view-patreon" class="view">
         <div class="blob blob-1"></div>
@@ -2533,7 +2471,7 @@
     </div>
 
     <!-- ============================================================
-    VIEW 4 – SUBSCRIBE (NEW)
+    VIEW 4 – SUBSCRIBE (STANDALONE PAYMENT)
     ============================================================ -->
     <div id="view-subscribe" class="view">
         <div class="subscribe-wrapper">
@@ -2589,52 +2527,12 @@
                     });
                     document.getElementById(viewId).classList.add('active');
 
-                    // Render PayPal for the specific view if needed
-                    if (viewId === 'view-claycraft') {
-                        renderPayPal();
-                    } else if (viewId === 'view-subscribe') {
+                    // Render PayPal only for Subscribe tab
+                    if (viewId === 'view-subscribe') {
                         renderSubscribePayPal();
                     }
                 });
             });
-
-            // ---- PayPal for Scum Guide tab ----
-            let paypalRendered = false;
-
-            function renderPayPal() {
-                if (paypalRendered) return;
-                if (typeof paypal === 'undefined' || !paypal.Buttons) {
-                    setTimeout(renderPayPal, 500);
-                    return;
-                }
-                const container = document.getElementById('paypal-button-container');
-                if (!container) return;
-                if (container.children.length > 0) return;
-
-                try {
-                    paypal.Buttons({
-                        createOrder: function(data, actions) {
-                            return actions.order.create({
-                                purchase_units: [{ amount: { value: '10.00' } }]
-                            });
-                        },
-                        onApprove: function(data, actions) {
-                            return actions.order.capture().then(function(details) {
-                                document.getElementById('paymentResult').innerHTML =
-                                    '✅ PayPal transaction completed by ' + details.payer.name
-                                    .given_name;
-                            });
-                        },
-                        onError: function(err) {
-                            document.getElementById('paymentResult').innerHTML =
-                                '❌ PayPal error: ' + err.message;
-                        }
-                    }).render('#paypal-button-container');
-                    paypalRendered = true;
-                } catch (e) {
-                    console.warn('PayPal render error:', e);
-                }
-            }
 
             // ---- PayPal for Subscribe tab ----
             let subscribePaypalRendered = false;
@@ -3012,12 +2910,8 @@
                 });
             }
 
-            // ---- Initial renders ----
-            renderPayPal();
-            // The subscribe tab isn't active by default, but we render it when switched.
-            // If the user clicks subscribe later, it will render then.
-
-            console.log('🧱 Scum Guide + 🧠 Tech Hustle + ✨ Patreon+ AI + 💳 Subscribe — all loaded.');
+            // ---- No need to render PayPal on load (Scum Guide active, has no payment) ----
+            console.log('🧱 Scum Guide (no payment) + 🧠 Tech Hustle + ✨ Patreon+ AI + 💳 Subscribe — all loaded.');
         })();
     </script>
 
