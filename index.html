@@ -547,6 +547,37 @@
             transform: scale(1.03);
         }
 
+        /* Placeholder for prompt products without images */
+        .product-card .prompt-placeholder {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.3), rgba(255, 105, 180, 0.1));
+            border-bottom: 1px solid rgba(255, 105, 180, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card .prompt-placeholder::after {
+            content: '✦';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.05;
+            bottom: -10px;
+            right: -10px;
+            transform: rotate(15deg);
+        }
+
+        .product-card .prompt-placeholder .emoji-big {
+            font-size: 5rem;
+            line-height: 1;
+            text-shadow: 0 0 40px rgba(255, 20, 147, 0.3);
+            z-index: 1;
+        }
+
         .product-card .body .cat-tag {
             display: inline-block;
             background: rgba(255, 20, 147, 0.2);
@@ -2240,6 +2271,12 @@
                 top: 10px;
                 right: -28px;
             }
+            .product-card .prompt-placeholder .emoji-big {
+                font-size: 3.5rem;
+            }
+            .product-card .prompt-placeholder {
+                height: 160px;
+            }
         }
 
         /* ========== RESPONSIVE ========== */
@@ -2262,6 +2299,9 @@
                 min-height: 220px;
             }
             .product-card img {
+                height: 160px;
+            }
+            .product-card .prompt-placeholder {
                 height: 160px;
             }
             .payment-row .btn {
@@ -2309,6 +2349,9 @@
             .marquee-track span {
                 font-size: 1rem;
                 padding: 0 1.5rem;
+            }
+            .product-card .prompt-placeholder .emoji-big {
+                font-size: 4rem;
             }
         }
 
@@ -2510,7 +2553,7 @@
             </div>
         </section>
 
-        <!-- ===== TABS (No empty tabs) ===== -->
+        <!-- ===== TABS ===== -->
         <div class="tab-bar" id="tabBar">
             <button class="tab-btn active" data-tab="all">All <span class="count" id="count-all">0</span></button>
             <button class="tab-btn" data-tab="models">Models <span class="count" id="count-models">0</span></button>
@@ -2659,12 +2702,14 @@
             </div>
 
             <!-- ============================================================ -->
-            <!-- PROMPTS — Super Cute & Girly Photography Prompts              -->
+            <!-- PROMPTS — Super Cute & Girly (NO EMBEDDED IMAGES)            -->
             <!-- ============================================================ -->
 
             <!-- Prompt 1: Candyfloss Sunset -->
             <div class="product-card" data-product="candyfloss_sunset" data-category="prompts" data-price="0.00">
-                <img src="https://64.media.tumblr.com/1950dc7cd8f4177cc84847da75c63337/6c0c76a7c50de01e-5a/s1280x1920/0b8cf94080010fd78f1557a1945f837f6d6bb4c3.pnj" alt="Candyfloss Sunset" loading="lazy" />
+                <div class="prompt-placeholder" style="background: linear-gradient(135deg, rgba(255,150,200,0.4), rgba(255,100,150,0.2));">
+                    <span class="emoji-big">🍭</span>
+                </div>
                 <div class="body">
                     <span class="badge-trending">🌸 Cute</span>
                     <span class="cat-tag">✨ Prompt</span>
@@ -2686,7 +2731,9 @@
 
             <!-- Prompt 2: Mermaid's Whisper -->
             <div class="product-card" data-product="mermaid_whisper" data-category="prompts" data-price="0.00">
-                <img src="https://64.media.tumblr.com/ef87b987378c0ef1898db4d0bcaa915e/6c0c76a7c50de01e-71/s1280x1920/c00eb96dbc4268cc7a983ab9ec9dc5281876b567.pnj" alt="Mermaid's Whisper" loading="lazy" />
+                <div class="prompt-placeholder" style="background: linear-gradient(135deg, rgba(100,200,255,0.3), rgba(150,100,255,0.2));">
+                    <span class="emoji-big">🧜‍♀️</span>
+                </div>
                 <div class="body">
                     <span class="badge-trending">🧜‍♀️ Magical</span>
                     <span class="cat-tag">✨ Prompt</span>
@@ -2708,7 +2755,9 @@
 
             <!-- Prompt 3: Pink Lotus Flow -->
             <div class="product-card" data-product="pink_lotus_flow" data-category="prompts" data-price="0.00">
-                <img src="https://64.media.tumblr.com/82c8b418b25f2cba2b3c266c1028dde1/6c0c76a7c50de01e-03/s1280x1920/5cd08a16b2a1097342927bc05130cd3b734d9e5d.pnj" alt="Pink Lotus Flow" loading="lazy" />
+                <div class="prompt-placeholder" style="background: linear-gradient(135deg, rgba(255,150,200,0.4), rgba(200,100,255,0.2));">
+                    <span class="emoji-big">🧘‍♀️</span>
+                </div>
                 <div class="body">
                     <span class="badge-trending">🧘‍♀️ Zen</span>
                     <span class="cat-tag">✨ Prompt</span>
@@ -2730,7 +2779,9 @@
 
             <!-- Prompt 4: Sugarplum Studio -->
             <div class="product-card" data-product="sugarplum_studio" data-category="prompts" data-price="0.00">
-                <img src="https://64.media.tumblr.com/1cae525fa27b013521494aa3bad7564e/6c0c76a7c50de01e-99/s1280x1920/461d51e39ddd5763965b7fafd472f678049fa6b9.pnj" alt="Sugarplum Studio" loading="lazy" />
+                <div class="prompt-placeholder" style="background: linear-gradient(135deg, rgba(255,200,150,0.3), rgba(200,150,255,0.2));">
+                    <span class="emoji-big">👛</span>
+                </div>
                 <div class="body">
                     <span class="badge-trending">👛 Glam</span>
                     <span class="cat-tag">✨ Prompt</span>
@@ -2752,7 +2803,9 @@
 
             <!-- Prompt 5: Bubblegum Babe -->
             <div class="product-card" data-product="bubblegum_babe" data-category="prompts" data-price="0.00">
-                <img src="https://64.media.tumblr.com/0358005a1dfef6bd08a2e4a96fc77b36/6c0c76a7c50de01e-a5/s1280x1920/6bba05ab86a0b1ca5caec87878ee64bbfd225630.pnj" alt="Bubblegum Babe" loading="lazy" />
+                <div class="prompt-placeholder" style="background: linear-gradient(135deg, rgba(255,150,200,0.4), rgba(100,200,255,0.2));">
+                    <span class="emoji-big">🍬</span>
+                </div>
                 <div class="body">
                     <span class="badge-trending">🍬 Fun</span>
                     <span class="cat-tag">✨ Prompt</span>
@@ -2774,7 +2827,9 @@
 
             <!-- Prompt 6: Velvet Noir Glam -->
             <div class="product-card" data-product="velvet_noir" data-category="prompts" data-price="0.00">
-                <img src="https://64.media.tumblr.com/0358005a1dfef6bd08a2e4a96fc77b36/6c0c76a7c50de01e-a5/s1280x1920/6bba05ab86a0b1ca5caec87878ee64bbfd225630.pnj" alt="Velvet Noir Glam" loading="lazy" />
+                <div class="prompt-placeholder" style="background: linear-gradient(135deg, rgba(100,80,120,0.4), rgba(50,50,80,0.3));">
+                    <span class="emoji-big">🖤</span>
+                </div>
                 <div class="body">
                     <span class="badge-trending">🖤 Dramatic</span>
                     <span class="cat-tag">✨ Prompt</span>
@@ -3248,9 +3303,11 @@
                                 <button class="btn-subscribe" style="font-size:0.85rem;padding:0.5rem;" data-product="qwen">💗 Subscribe</button>
                             </div>
                         </div>
-                        <!-- Candyfloss Sunset -->
+                        <!-- Candyfloss Sunset (placeholder) -->
                         <div class="product-card" style="animation: none;">
-                            <img src="https://64.media.tumblr.com/1950dc7cd8f4177cc84847da75c63337/6c0c76a7c50de01e-5a/s1280x1920/0b8cf94080010fd78f1557a1945f837f6d6bb4c3.pnj" alt="Candyfloss" loading="lazy" />
+                            <div class="prompt-placeholder" style="height:160px; background: linear-gradient(135deg, rgba(255,150,200,0.5), rgba(255,100,150,0.3));">
+                                <span class="emoji-big" style="font-size:3.5rem;">🍭</span>
+                            </div>
                             <div class="body">
                                 <span class="badge-trending">🌸 Cute</span>
                                 <span class="cat-tag">✨ Prompt</span>
@@ -3293,9 +3350,11 @@
                                 <button class="btn-subscribe" style="font-size:0.85rem;padding:0.5rem;" data-product="glm45">💗 Subscribe</button>
                             </div>
                         </div>
-                        <!-- Pink Lotus Flow -->
+                        <!-- Pink Lotus Flow (placeholder) -->
                         <div class="product-card" style="animation: none;">
-                            <img src="https://64.media.tumblr.com/82c8b418b25f2cba2b3c266c1028dde1/6c0c76a7c50de01e-03/s1280x1920/5cd08a16b2a1097342927bc05130cd3b734d9e5d.pnj" alt="Pink Lotus" loading="lazy" />
+                            <div class="prompt-placeholder" style="height:160px; background: linear-gradient(135deg, rgba(255,150,200,0.5), rgba(200,100,255,0.3));">
+                                <span class="emoji-big" style="font-size:3.5rem;">🧘‍♀️</span>
+                            </div>
                             <div class="body">
                                 <span class="badge-trending">🧘‍♀️ Zen</span>
                                 <span class="cat-tag">✨ Prompt</span>
@@ -3393,7 +3452,7 @@
     <!-- ===== PROMO POP-UP TRIGGER BUTTON ===== -->
     <button class="promo-trigger" id="showPopupBtn">🎁 Claim Your Offer</button>
 
-    <!-- ===== PROMO POP-UP OVERLAY ===== -->
+    <!-- ===== PROMO POP-UP OVERLAY (UPDATED STRIPE LINK) ===== -->
     <div class="popup-overlay" id="popupOverlay">
         <div class="popup-card">
             <button class="popup-close" id="closePopupBtn">✕</button>
@@ -3428,7 +3487,7 @@
                 </a>
                 <div id="paypal-button-container-popup"></div>
                 <div class="method-divider">or</div>
-                <a href="https://buy.stripe.com/28eeVd4O216l9HzaVJenS00" target="_blank" rel="noopener noreferrer" class="btn btn-stripe-checkout">
+                <a href="https://donate.stripe.com/cNi28s3SGdRr5ps81E6c000" target="_blank" rel="noopener noreferrer" class="btn btn-stripe-checkout">
                     <span class="icon">⚡</span>
                     Pay with Stripe (Checkout)
                     <span class="small">→</span>
@@ -3581,7 +3640,7 @@
             });
 
             // =============================================================
-            //  4.  TABS — FILTER PRODUCTS (No empty tabs)
+            //  4.  TABS — FILTER PRODUCTS
             // =============================================================
             const tabButtons = document.querySelectorAll('.tab-btn');
             const productCards = document.querySelectorAll('#product-list .product-card');
@@ -3634,39 +3693,25 @@
             });
 
             // =============================================================
-            //  6.  STRIPE
+            //  6.  STRIPE — UPDATED TO USE NEW CHECKOUT LINK
             // =============================================================
-            const STRIPE_PUBLISHABLE_KEY = 'pk_test_6pRNASCoBOKtIshFeQd4XMUh';
-            const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-            const STRIPE_SESSION_PLACEHOLDER = 'cs_test_xxxxxxxxxxxx';
+            const STRIPE_CHECKOUT_URL = 'https://donate.stripe.com/cNi28s3SGdRr5ps81E6c000';
 
             document.querySelectorAll('.stripe-checkout-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     const product = this.dataset.product;
                     const statusEl = document.getElementById('status-' + product);
-
-                    if (STRIPE_SESSION_PLACEHOLDER === 'cs_test_xxxxxxxxxxxx') {
-                        statusEl.className = 'product-status error';
-                        statusEl.textContent = '⚠️ Replace STRIPE_SESSION_PLACEHOLDER with a real Checkout Session ID.';
-                        return;
+                    // Open the Stripe checkout link in a new tab
+                    window.open(STRIPE_CHECKOUT_URL, '_blank');
+                    if (statusEl) {
+                        statusEl.className = 'product-status info';
+                        statusEl.textContent = '💳 Redirecting to Stripe Checkout…';
+                        setTimeout(() => {
+                            statusEl.className = 'product-status info';
+                            statusEl.textContent = '✨ Checkout opened in new tab. Complete your payment there.';
+                        }, 2000);
                     }
-
-                    statusEl.className = 'product-status info';
-                    statusEl.textContent = '✨ Redirecting to Stripe…';
-
-                    stripe.redirectToCheckout({ sessionId: STRIPE_SESSION_PLACEHOLDER })
-                        .then(result => {
-                            if (result.error) {
-                                statusEl.className = 'product-status error';
-                                statusEl.textContent = result.error.message || 'Stripe error.';
-                            }
-                        })
-                        .catch(err => {
-                            statusEl.className = 'product-status error';
-                            statusEl.textContent = 'Unexpected error. See console.';
-                            console.error(err);
-                        });
                 });
             });
 
@@ -3944,19 +3989,8 @@
             updateCounts();
 
             // =============================================================
-            //  12. DEMO NOTE
+            //  12. DEMO NOTE — REMOVED OLD STRIPE PLACEHOLDER WARNING
             // =============================================================
-            if (STRIPE_SESSION_PLACEHOLDER === 'cs_test_xxxxxxxxxxxx') {
-                const note = document.createElement('div');
-                note.style.cssText =
-                    'background:rgba(255,20,147,0.08); backdrop-filter:blur(4px); border:1px solid rgba(255,105,180,0.2); padding:0.75rem 1.25rem; border-radius:999px; margin:1.5rem 0 0; font-size:0.9rem; color:#ffb6c1; text-align:center; font-family: "Nunito", sans-serif;';
-                note.innerHTML =
-                    `
-                💡 <strong>Stripe demo:</strong> Replace <code style="background:rgba(255,255,255,0.05);padding:0.1rem 0.5rem;border-radius:4px;">STRIPE_SESSION_PLACEHOLDER</code> with a real Checkout Session ID.
-                <br>Use the Stripe CLI: <code style="background:rgba(255,255,255,0.05);padding:0.1rem 0.5rem;border-radius:4px;">stripe checkout sessions create --success-url "https://example.com/success" --cancel-url "https://example.com/cancel" --line-items '[{"price":"price_123","quantity":1}]'</code>
-              `;
-                document.querySelector('#product-list').parentNode.insertBefore(note, document.querySelector('#product-list'));
-            }
 
             // =============================================================
             //  13. BACK TO TOP
@@ -3975,7 +4009,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            console.log('✨ Patreon+ · 24 products + welcome + security loaded!');
+            console.log('✨ Patreon+ · 24 products + Stripe updated!');
 
         })();
     </script>
