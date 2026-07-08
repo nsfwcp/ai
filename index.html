@@ -1882,7 +1882,7 @@
             box-shadow: 0 12px 40px rgba(255, 20, 147, 0.6);
         }
 
-        /* ===== WELCOME SCREEN (ADDED) ===== */
+        /* ===== WELCOME SCREEN ===== */
         .welcome-screen {
             position: fixed;
             inset: 0;
@@ -1985,16 +1985,237 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .welcome-screen .brand {
-                gap: 0;
-            }
-            .welcome-screen .plus-sign {
-                margin-left: 0.02em;
-            }
-            .welcome-screen .welcome-text {
-                letter-spacing: 0.04em;
-            }
+        /* ===== SECURITY WARNING SCREEN ===== */
+        .security-screen {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 99998;
+            cursor: pointer;
+            transition: opacity 0.8s ease;
+            pointer-events: auto;
+            padding: 20px;
+        }
+
+        .security-screen .warning-box {
+            max-width: 880px;
+            width: 100%;
+            background: #12161c;
+            border-radius: 28px;
+            padding: 40px 35px 30px;
+            box-shadow: 0 0 40px rgba(255, 50, 50, 0.15), 0 0 80px rgba(255, 0, 0, 0.05);
+            border: 2px solid #ff3b3b;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .security-screen .light-bar {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            display: flex;
+            gap: 8px;
+            padding: 0 12px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .security-screen .light-bar.top {
+            top: -2px;
+        }
+        .security-screen .light-bar.bottom {
+            bottom: -2px;
+        }
+
+        .security-screen .light {
+            flex: 1 1 0;
+            height: 100%;
+            border-radius: 50px;
+            opacity: 0.2;
+            animation: flashLight 1.2s infinite alternate ease-in-out;
+        }
+
+        .security-screen .light:nth-child(odd) {
+            background: #ffd700;
+            box-shadow: 0 0 12px #ffd700;
+        }
+        .security-screen .light:nth-child(even) {
+            background: #ff2d2d;
+            box-shadow: 0 0 12px #ff2d2d;
+        }
+
+        .security-screen .light:nth-child(1) { animation-delay: 0.0s; }
+        .security-screen .light:nth-child(2) { animation-delay: 0.1s; }
+        .security-screen .light:nth-child(3) { animation-delay: 0.2s; }
+        .security-screen .light:nth-child(4) { animation-delay: 0.3s; }
+        .security-screen .light:nth-child(5) { animation-delay: 0.4s; }
+        .security-screen .light:nth-child(6) { animation-delay: 0.5s; }
+        .security-screen .light:nth-child(7) { animation-delay: 0.6s; }
+        .security-screen .light:nth-child(8) { animation-delay: 0.7s; }
+        .security-screen .light:nth-child(9) { animation-delay: 0.8s; }
+        .security-screen .light:nth-child(10) { animation-delay: 0.9s; }
+        .security-screen .light:nth-child(11) { animation-delay: 0.0s; }
+        .security-screen .light:nth-child(12) { animation-delay: 0.1s; }
+        .security-screen .light:nth-child(13) { animation-delay: 0.2s; }
+        .security-screen .light:nth-child(14) { animation-delay: 0.3s; }
+        .security-screen .light:nth-child(15) { animation-delay: 0.4s; }
+        .security-screen .light:nth-child(16) { animation-delay: 0.5s; }
+        .security-screen .light:nth-child(17) { animation-delay: 0.6s; }
+        .security-screen .light:nth-child(18) { animation-delay: 0.7s; }
+        .security-screen .light:nth-child(19) { animation-delay: 0.8s; }
+        .security-screen .light:nth-child(20) { animation-delay: 0.9s; }
+
+        @keyframes flashLight {
+            0% { opacity: 0.15; transform: scale(0.85); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .security-screen .siren {
+            display: inline-block;
+            margin: 10px auto 16px;
+            font-size: 56px;
+            line-height: 1;
+            animation: rotateBeacon 2.4s infinite linear;
+            filter: drop-shadow(0 0 25px rgba(255, 50, 0, 0.6));
+        }
+
+        @keyframes rotateBeacon {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(15deg) scale(1.1); }
+            50% { transform: rotate(0deg) scale(1); }
+            75% { transform: rotate(-15deg) scale(1.05); }
+            100% { transform: rotate(0deg) scale(1); }
+        }
+
+        .security-screen .badge {
+            display: inline-block;
+            background: #ff1a1a;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            padding: 8px 28px;
+            border-radius: 60px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            animation: pulseBadge 1.8s infinite alternate;
+        }
+
+        @keyframes pulseBadge {
+            0% { box-shadow: 0 0 15px rgba(255, 0, 0, 0.3); transform: scale(1); }
+            100% { box-shadow: 0 0 50px rgba(255, 0, 0, 0.8); transform: scale(1.02); }
+        }
+
+        .security-screen h1 {
+            color: #fff;
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin: 8px 0 6px;
+            text-shadow: 0 0 30px rgba(255, 60, 60, 0.25);
+        }
+
+        .security-screen .subhead {
+            color: #ffb3b3;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-top: 1px solid #2d3a45;
+            border-bottom: 1px solid #2d3a45;
+            padding: 12px 0;
+            margin: 16px 0 22px;
+            letter-spacing: 0.3px;
+        }
+
+        .security-screen .subhead strong {
+            color: #ffd966;
+        }
+
+        .security-screen .content {
+            text-align: left;
+            color: #d0d9e0;
+            background: #1a2129;
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin: 18px 0 24px;
+            border-left: 6px solid #ff3b3b;
+        }
+
+        .security-screen .content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .security-screen .content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .security-screen .content ul {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0 12px;
+        }
+
+        .security-screen .content ul li {
+            padding: 6px 0 6px 36px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23ff4d4d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>') left center no-repeat;
+            background-size: 22px;
+        }
+
+        .security-screen .content .highlight {
+            color: #ff9f9f;
+            font-weight: 600;
+        }
+
+        .security-screen .content .green {
+            color: #7bdcb5;
+            font-weight: 600;
+        }
+
+        .security-screen .footer-note {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 12px 28px;
+            color: #8b9aa8;
+            font-size: 0.85rem;
+            border-top: 1px solid #2a343e;
+            padding-top: 22px;
+            margin-top: 8px;
+        }
+
+        .security-screen .footer-note span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .security-screen .footer-note .icon {
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 600px) {
+            .security-screen .warning-box { padding: 26px 16px 20px; }
+            .security-screen h1 { font-size: 1.6rem; }
+            .security-screen .badge { font-size: 0.75rem; padding: 6px 18px; }
+            .security-screen .subhead { font-size: 0.95rem; }
+            .security-screen .content { padding: 18px 16px; }
+            .security-screen .siren { font-size: 42px; }
+            .security-screen .light-bar { height: 8px; gap: 5px; padding: 0 8px; }
+        }
+
+        @media (max-width: 400px) {
+            .security-screen h1 { font-size: 1.3rem; }
+            .security-screen .content ul li { padding-left: 30px; font-size: 0.9rem; }
         }
 
         @media (max-width: 640px) {
@@ -2146,6 +2367,53 @@
         </div>
     </div>
 
+    <!-- ===== SECURITY WARNING SCREEN ===== -->
+    <div class="security-screen" id="securityScreen" style="display:none;">
+        <div class="warning-box">
+            <div class="light-bar top">
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+                <span class="light"></span><span class="light"></span>
+            </div>
+            <div class="light-bar bottom">
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+                <span class="light"></span><span class="light"></span><span class="light"></span>
+                <span class="light"></span><span class="light"></span>
+            </div>
+            <div class="siren">🚨</div>
+            <div class="badge">⚠️ OFFICIAL WARNING</div>
+            <h1>patreon+ Security Notice</h1>
+            <div class="subhead">
+                <strong>WE ARE NOT AFFILIATED</strong> with any illegal or unmoderated third‑party groups
+            </div>
+            <div class="content">
+                <p><span style="color:#ff6b6b; font-weight:700;">🔴 ZERO TOLERANCE</span> — Our official channels are <strong>family‑friendly, Safe‑for‑Work</strong>, and strictly moderated. Any attempt to share illegal, NSFW, or copyrighted material in <strong>patreon+</strong> spaces will result in an immediate permanent ban.</p>
+                <ul>
+                    <li><span class="highlight">We do not own, moderate, or control</span> any groups on Telegram, Potato Chat, Tato Talk, Discord, or similar external platforms.</li>
+                    <li>If a stranger messages you with suspicious links or invites to hidden chats, <span class="highlight">do not engage</span> — report it to the platform immediately.</li>
+                    <li>All <strong>patreon+</strong> products (HTML templates, courses, AI tutorials) are delivered <span class="green">directly</span> through our secure dashboard — <strong>never</strong> via third‑party chat apps.</li>
+                    <li>We promote <span class="green">legal, educational, and creative content</span> only. Illegal activity is the sole responsibility of the individuals involved.</li>
+                </ul>
+                <p style="margin-top:12px; color:#f0b3b3; font-weight:500;">
+                    ⚡ If you encounter illegal content anywhere, report it to the authorities or the platform's safety team.
+                </p>
+            </div>
+            <div class="footer-note">
+                <span><span class="icon">🛡️</span> patreon+ — Family‑Friendly Community</span>
+                <span><span class="icon">📦</span> Direct Secure Delivery</span>
+                <span><span class="icon">🚫</span> Zero Affiliation with Third‑Party Groups</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Floating particles (decorative) -->
     <div class="particles">
         <div class="particle"></div>
@@ -2242,7 +2510,7 @@
             </div>
         </section>
 
-        <!-- ===== TABS ===== -->
+        <!-- ===== TABS (No empty tabs) ===== -->
         <div class="tab-bar" id="tabBar">
             <button class="tab-btn active" data-tab="all">All <span class="count" id="count-all">0</span></button>
             <button class="tab-btn" data-tab="models">Models <span class="count" id="count-models">0</span></button>
@@ -3187,9 +3455,10 @@
             'use strict';
 
             // =============================================================
-            //  0.  WELCOME SCREEN CONTROLS
+            //  0.  WELCOME SCREEN + SECURITY SCREEN SEQUENCE
             // =============================================================
             const welcomeScreen = document.getElementById('welcomeScreen');
+            const securityScreen = document.getElementById('securityScreen');
 
             function dismissWelcome() {
                 if (!welcomeScreen) return;
@@ -3198,11 +3467,38 @@
                 welcomeScreen.style.pointerEvents = 'none';
                 setTimeout(() => {
                     welcomeScreen.style.display = 'none';
+                    // Show security screen after welcome disappears
+                    showSecurityScreen();
+                }, 800);
+            }
+
+            function showSecurityScreen() {
+                if (!securityScreen) return;
+                securityScreen.style.display = 'flex';
+                securityScreen.style.opacity = '1';
+                securityScreen.style.transition = 'opacity 0.8s ease';
+                // Auto-dismiss after 10 seconds (double the welcome screen's 5s)
+                setTimeout(() => {
+                    if (securityScreen.style.display !== 'none') {
+                        dismissSecurity();
+                    }
+                }, 10000);
+                // Click to dismiss
+                securityScreen.addEventListener('click', dismissSecurity);
+            }
+
+            function dismissSecurity() {
+                if (!securityScreen) return;
+                securityScreen.style.opacity = '0';
+                securityScreen.style.transition = 'opacity 0.8s ease';
+                securityScreen.style.pointerEvents = 'none';
+                setTimeout(() => {
+                    securityScreen.style.display = 'none';
                 }, 800);
             }
 
             if (welcomeScreen) {
-                // Click to dismiss
+                // Click to dismiss welcome
                 welcomeScreen.addEventListener('click', dismissWelcome);
                 // Auto-dismiss after 5 seconds
                 setTimeout(() => {
@@ -3285,7 +3581,7 @@
             });
 
             // =============================================================
-            //  4.  TABS — FILTER PRODUCTS
+            //  4.  TABS — FILTER PRODUCTS (No empty tabs)
             // =============================================================
             const tabButtons = document.querySelectorAll('.tab-btn');
             const productCards = document.querySelectorAll('#product-list .product-card');
@@ -3679,7 +3975,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            console.log('✨ Patreon+ · 24 products + welcome screen loaded!');
+            console.log('✨ Patreon+ · 24 products + welcome + security loaded!');
 
         })();
     </script>
