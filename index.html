@@ -8,6 +8,9 @@
     <!-- Stripe & PayPal SDKs -->
     <script src="https://js.stripe.com/v3/">
     </script>
+    <!-- Stripe Buy Button SDK (for Stripe Card) -->
+    <script async src="https://js.stripe.com/v3/buy-button.js">
+    </script>
     <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD&intent=capture"
     data-namespace="paypal_sdk"
     defer>
@@ -2583,8 +2586,8 @@
                     <button class="btn-subscribe" data-product="qwen">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-qwen">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="qwen">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-qwen"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-qwen"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-qwen"></div>
                     </div>
@@ -2605,8 +2608,8 @@
                     <button class="btn-subscribe" data-product="glm45">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-glm45">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="glm45">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-glm45"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-glm45"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-glm45"></div>
                     </div>
@@ -2627,8 +2630,8 @@
                     <button class="btn-subscribe" data-product="deepseek">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-deepseek">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="deepseek">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-deepseek"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-deepseek"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-deepseek"></div>
                     </div>
@@ -2649,8 +2652,8 @@
                     <button class="btn-subscribe" data-product="gemma4">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-gemma4">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="gemma4">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-gemma4"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-gemma4"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-gemma4"></div>
                     </div>
@@ -2671,8 +2674,8 @@
                     <button class="btn-subscribe" data-product="llama3">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-llama3">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="llama3">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-llama3"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-llama3"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-llama3"></div>
                     </div>
@@ -2693,8 +2696,8 @@
                     <button class="btn-subscribe" data-product="gptoss">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-gptoss">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="gptoss">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-gptoss"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-gptoss"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-gptoss"></div>
                     </div>
@@ -2721,8 +2724,8 @@
                     <button class="btn-subscribe" data-product="candyfloss_sunset">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-candyfloss_sunset">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="candyfloss_sunset">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-candyfloss_sunset"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-candyfloss_sunset"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-candyfloss_sunset"></div>
                     </div>
@@ -2745,8 +2748,8 @@
                     <button class="btn-subscribe" data-product="mermaid_whisper">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-mermaid_whisper">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="mermaid_whisper">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-mermaid_whisper"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-mermaid_whisper"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-mermaid_whisper"></div>
                     </div>
@@ -2769,8 +2772,8 @@
                     <button class="btn-subscribe" data-product="pink_lotus_flow">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-pink_lotus_flow">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="pink_lotus_flow">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-pink_lotus_flow"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-pink_lotus_flow"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-pink_lotus_flow"></div>
                     </div>
@@ -2793,8 +2796,8 @@
                     <button class="btn-subscribe" data-product="sugarplum_studio">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-sugarplum_studio">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="sugarplum_studio">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-sugarplum_studio"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-sugarplum_studio"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-sugarplum_studio"></div>
                     </div>
@@ -2817,8 +2820,8 @@
                     <button class="btn-subscribe" data-product="bubblegum_babe">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-bubblegum_babe">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="bubblegum_babe">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-bubblegum_babe"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-bubblegum_babe"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-bubblegum_babe"></div>
                     </div>
@@ -2841,8 +2844,8 @@
                     <button class="btn-subscribe" data-product="velvet_noir">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-velvet_noir">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="velvet_noir">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-velvet_noir"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-velvet_noir"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-velvet_noir"></div>
                     </div>
@@ -2867,8 +2870,8 @@
                     <button class="btn-subscribe" data-product="wallpaper1">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-wallpaper1">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="wallpaper1">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-wallpaper1"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-wallpaper1"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-wallpaper1"></div>
                     </div>
@@ -2889,8 +2892,8 @@
                     <button class="btn-subscribe" data-product="wallpaper2">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-wallpaper2">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="wallpaper2">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-wallpaper2"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-wallpaper2"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-wallpaper2"></div>
                     </div>
@@ -2911,8 +2914,8 @@
                     <button class="btn-subscribe" data-product="wallpaper3">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-wallpaper3">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="wallpaper3">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-wallpaper3"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-wallpaper3"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-wallpaper3"></div>
                     </div>
@@ -2933,8 +2936,8 @@
                     <button class="btn-subscribe" data-product="wallpaper4">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-wallpaper4">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="wallpaper4">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-wallpaper4"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-wallpaper4"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-wallpaper4"></div>
                     </div>
@@ -2955,8 +2958,8 @@
                     <button class="btn-subscribe" data-product="wallpaper5">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-wallpaper5">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="wallpaper5">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-wallpaper5"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-wallpaper5"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-wallpaper5"></div>
                     </div>
@@ -2977,8 +2980,8 @@
                     <button class="btn-subscribe" data-product="wallpaper6">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-wallpaper6">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="wallpaper6">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-wallpaper6"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-wallpaper6"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-wallpaper6"></div>
                     </div>
@@ -3003,8 +3006,8 @@
                     <button class="btn-subscribe" data-product="preview1">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-preview1">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="preview1">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-preview1"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-preview1"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-preview1"></div>
                     </div>
@@ -3025,8 +3028,8 @@
                     <button class="btn-subscribe" data-product="preview2">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-preview2">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="preview2">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-preview2"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-preview2"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-preview2"></div>
                     </div>
@@ -3047,8 +3050,8 @@
                     <button class="btn-subscribe" data-product="preview3">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-preview3">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="preview3">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-preview3"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-preview3"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-preview3"></div>
                     </div>
@@ -3069,8 +3072,8 @@
                     <button class="btn-subscribe" data-product="preview4">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-preview4">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="preview4">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-preview4"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-preview4"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-preview4"></div>
                     </div>
@@ -3091,8 +3094,8 @@
                     <button class="btn-subscribe" data-product="preview5">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-preview5">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="preview5">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-preview5"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-preview5"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-preview5"></div>
                     </div>
@@ -3113,8 +3116,8 @@
                     <button class="btn-subscribe" data-product="preview6">💗 Subscribe</button>
                     <div class="payment-toggle-wrapper" id="options-preview6">
                         <div class="payment-row">
-                            <button class="btn btn-stripe stripe-checkout-btn" data-amount="0.00" data-product="preview6">⚡ Stripe</button>
-                            <div class="paypal-button-container" id="paypal-preview6"><div class="paypal-placeholder">Loading PayPal…</div></div>
+                            <div class="paypal-button-container" id="paypal-preview6"></div>
+                            <stripe-buy-button buy-button-id="buy_btn_1TqoW5LSIB6IjFRXK9UsvpAT" publishable-key="pk_live_51TKTF4LSIB6IjFRX3lKiYl3vVLCiphsZluzPsi9Zzz4Dxs1AxXqn2tQXwpXlKuzP2ePkXIn45BoqkVRsSVhSczkk00EhKZvS83"></stripe-buy-button>
                         </div>
                         <div class="product-status" id="status-preview6"></div>
                     </div>
@@ -3693,27 +3696,9 @@
             });
 
             // =============================================================
-            //  6.  STRIPE — UPDATED TO USE NEW CHECKOUT LINK
+            //  6.  STRIPE — (removed old stripe button listener)
             // =============================================================
-            const STRIPE_CHECKOUT_URL = 'https://donate.stripe.com/cNi28s3SGdRr5ps81E6c000';
-
-            document.querySelectorAll('.stripe-checkout-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const product = this.dataset.product;
-                    const statusEl = document.getElementById('status-' + product);
-                    // Open the Stripe checkout link in a new tab
-                    window.open(STRIPE_CHECKOUT_URL, '_blank');
-                    if (statusEl) {
-                        statusEl.className = 'product-status info';
-                        statusEl.textContent = '💳 Redirecting to Stripe Checkout…';
-                        setTimeout(() => {
-                            statusEl.className = 'product-status info';
-                            statusEl.textContent = '✨ Checkout opened in new tab. Complete your payment there.';
-                        }, 2000);
-                    }
-                });
-            });
+            // No need for the old Stripe button listener, as we replaced it with Stripe Buy Button.
 
             // =============================================================
             //  7.  PAYPAL — on demand (for product cards)
@@ -3989,11 +3974,7 @@
             updateCounts();
 
             // =============================================================
-            //  12. DEMO NOTE — REMOVED OLD STRIPE PLACEHOLDER WARNING
-            // =============================================================
-
-            // =============================================================
-            //  13. BACK TO TOP
+            //  12. BACK TO TOP
             // =============================================================
             const backToTopBtn = document.getElementById('backToTop');
 
@@ -4009,7 +3990,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            console.log('✨ Patreon+ · 24 products + Stripe updated!');
+            console.log('✨ Patreon+ · 24 products + Stripe Card & PayPal swapped!');
 
         })();
     </script>
