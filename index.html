@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>✨ Patreon+ · Models · Prompts · Wallpapers</title>
 
-    <!-- Stripe & PayPal SDKs -->
+    <!-- Stripe SDK -->
     <script src="https://js.stripe.com/v3/">
     </script>
-    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD&intent=capture" data-namespace="paypal_sdk" defer>
-    </script>
+
+    <!-- PayPal SDK – production (removed duplicate sandbox script) -->
     <script src="https://www.paypal.com/sdk/js?client-id=AaZIURGHfoVL0seNGmKhkm3_piU1UERhw7N4TaWhA8DIRRfxZ383l5QqVbyBHfsrB1Hz3H589vd1ZcpI&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card" data-sdk-integration-source="developer-studio">
     </script>
 
@@ -30,7 +30,8 @@
             overflow-x: hidden;
             color: #e8e0f0;
             padding: 0;
-            padding-bottom: 80px; /* for social bar */
+            padding-bottom: 80px;
+            /* space for social bar */
             position: relative;
         }
 
@@ -69,7 +70,7 @@
             }
         }
 
-        /* ——— FLOATING PARTICLES (colorful) ——— */
+        /* ——— FLOATING PARTICLES ——— */
         .particles {
             position: fixed;
             top: 0;
@@ -2251,13 +2252,6 @@
                 font-size: 1rem;
                 padding: 0 1.5rem;
             }
-            /* Support button on mobile */
-            #support-toggle {
-                bottom: 1.2rem;
-                right: 1.2rem;
-                padding: 0.7rem 1.4rem;
-                font-size: 0.95rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -2304,8 +2298,7 @@
         }
 
         /* ============================================================= */
-        /*  SUPPORT MODAL – added to the existing page                    */
-        /*  Scoped under #support-modal-wrapper to avoid conflicts        */
+        /*  SUPPORT MODAL – scoped                                        */
         /* ============================================================= */
         #support-modal-wrapper *,
         #support-modal-wrapper *::before,
@@ -2390,7 +2383,6 @@
             display: block;
         }
 
-        /* screens inside support modal */
         #support-app-container .screen {
             position: absolute;
             inset: 0;
@@ -2934,7 +2926,7 @@
             }
         }
 
-        /* ── prefers-reduced-motion ── */
+        /* prefers-reduced-motion */
         @media (prefers-reduced-motion: reduce) {
             #support-modal-wrapper *,
             #support-modal-wrapper *::before,
@@ -2959,7 +2951,7 @@
             }
         }
 
-        /* ── accessibility ── */
+        /* accessibility */
         #support-split-screen .half-link:focus-visible,
         #support-grid-screen .square:focus-visible,
         #support-action-screen .action-rect:focus-visible {
@@ -3013,7 +3005,7 @@
             }
         }
 
-        /* ─── AD PLACEMENT STYLES (minor tweaks) ─── */
+        /* ─── AD PLACEMENT STYLES ─── */
         .ad-728,
         .ad-300,
         .ad-468,
@@ -3040,6 +3032,81 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        /* ============================================================ */
+        /* AD 8: SOCIAL BAR (Zone 29069504) – Sticky bottom              */
+        /* ============================================================ */
+        .ad-social {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 13, 21, 0.93);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(245, 200, 66, 0.25);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            z-index: 999;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
+            font-family: 'Inter', Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        .ad-social .l {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .ad-social .l .label {
+            font-size: 8px;
+            color: #555;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-right: 4px;
+        }
+        .ad-social .l .ico {
+            font-size: 1.4rem;
+            color: #f5c842;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .ad-social .l .ico:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+        .ad-social .r {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .ad-social .r span {
+            font-size: 0.8rem;
+            color: #a095b5;
+        }
+        .ad-social .r .btn {
+            background: #f5c842;
+            border: none;
+            color: #0b0a0f;
+            font-weight: 800;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .ad-social .r .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(245, 200, 66, 0.4);
+        }
+        .ad-social .r .st {
+            font-size: 10px;
+            color: #555;
         }
     </style>
 </head>
@@ -3112,14 +3179,10 @@
         </div>
 
         <!-- ===== AD 1: BANNER 728x90 (Zone 29069506) ===== -->
-        <!-- ============================================================ -->
-        <!-- PATREON+ AD NETWORK · BANNER 728x90                          -->
-        <!-- Zone: 29069506  |  Clicks → https://link.me/danceplanet     -->
-        <!-- ============================================================ -->
-        <div class="ad-728" style="background: linear-gradient(145deg,#1a1724,#0f0d15); border:1px dashed rgba(255,215,0,0.3); border-radius:12px; padding:12px; text-align:center; font-family:'Inter',Arial,sans-serif; cursor:pointer; transition:0.2s; max-width:100%; backdrop-filter:blur(4px);" onclick="window.open('https://link.me/danceplanet','_blank');">
-            <div style="background:rgba(255,215,0,0.15); padding:4px 12px; border-radius:30px; font-size:10px; letter-spacing:0.5px; color:#f5c842; display:inline-block; margin-bottom:6px; text-transform:uppercase; font-weight:800;">📢 Banner 728x90 · Zone 29069506</div>
-            <img src="https://64.media.tumblr.com/190471fc65cc0b657944c08ed20651be/739808f3065e0afd-5a/s1280x1920/4f9328bb7e7ec7e42001a5d64a15486c89db7aa0.pnj" alt="728x90 Ad" style="max-width:728px; width:100%; border-radius:8px; display:block; margin:0 auto;" />
-            <div style="font-size:9px; color:#666; margin-top:4px; font-family:monospace;">Active · Programmatic Display</div>
+        <div class="ad-728" style="background:linear-gradient(145deg,#1a1724,#0f0d15);border:1px dashed rgba(255,215,0,0.3);border-radius:12px;padding:12px;text-align:center;font-family:'Inter',Arial,sans-serif;cursor:pointer;transition:0.2s;max-width:100%;backdrop-filter:blur(4px);" onclick="window.open('https://link.me/danceplanet','_blank');">
+            <div style="background:rgba(255,215,0,0.15);padding:4px 12px;border-radius:30px;font-size:10px;letter-spacing:0.5px;color:#f5c842;display:inline-block;margin-bottom:6px;text-transform:uppercase;font-weight:800;">📢 Banner 728x90 · Zone 29069506</div>
+            <img src="https://64.media.tumblr.com/190471fc65cc0b657944c08ed20651be/739808f3065e0afd-5a/s1280x1920/4f9328bb7e7ec7e42001a5d64a15486c89db7aa0.pnj" alt="728x90 Ad" style="max-width:728px;width:100%;border-radius:8px;display:block;margin:0 auto;" />
+            <div style="font-size:9px;color:#666;margin-top:4px;font-family:monospace;">Active · Programmatic Display</div>
         </div>
 
         <!-- ===== INFINITE SCROLL MARQUEE ===== -->
@@ -3574,14 +3637,10 @@
         </div><!-- /products -->
 
         <!-- ===== AD 2: BANNER 300x250 (Zone 29069503) ===== -->
-        <!-- ============================================================ -->
-        <!-- PATREON+ AD NETWORK · BANNER 300x250                         -->
-        <!-- Zone: 29069503  |  Clicks → https://link.me/danceplanet     -->
-        <!-- ============================================================ -->
-        <div class="ad-300" style="background:linear-gradient(145deg,#1a1724,#0f0d15); border:1px dashed rgba(255,215,0,0.3); border-radius:12px; padding:12px; text-align:center; font-family:'Inter',Arial,sans-serif; cursor:pointer; transition:0.2s; max-width:100%; backdrop-filter:blur(4px); min-height:270px; display:flex; flex-direction:column; align-items:center; justify-content:center;" onclick="window.open('https://link.me/danceplanet','_blank');">
-            <div style="background:rgba(255,215,0,0.15); padding:4px 12px; border-radius:30px; font-size:10px; letter-spacing:0.5px; color:#f5c842; display:inline-block; margin-bottom:6px; text-transform:uppercase; font-weight:800;">📢 Banner 300x250 · Zone 29069503</div>
-            <img src="https://64.media.tumblr.com/3d70151a259993c117e557c400849bc0/739808f3065e0afd-f5/s1280x1920/0198c9478984e5212e58b40a214c049ca7e1466c.pnj" alt="300x250 Ad" style="max-width:300px; width:100%; border-radius:8px; display:block; margin:0 auto;" />
-            <div style="font-size:9px; color:#666; margin-top:4px; font-family:monospace;">Active · Sidebar Display</div>
+        <div class="ad-300" style="background:linear-gradient(145deg,#1a1724,#0f0d15);border:1px dashed rgba(255,215,0,0.3);border-radius:12px;padding:12px;text-align:center;font-family:'Inter',Arial,sans-serif;cursor:pointer;transition:0.2s;max-width:100%;backdrop-filter:blur(4px);min-height:270px;display:flex;flex-direction:column;align-items:center;justify-content:center;" onclick="window.open('https://link.me/danceplanet','_blank');">
+            <div style="background:rgba(255,215,0,0.15);padding:4px 12px;border-radius:30px;font-size:10px;letter-spacing:0.5px;color:#f5c842;display:inline-block;margin-bottom:6px;text-transform:uppercase;font-weight:800;">📢 Banner 300x250 · Zone 29069503</div>
+            <img src="https://64.media.tumblr.com/3d70151a259993c117e557c400849bc0/739808f3065e0afd-f5/s1280x1920/0198c9478984e5212e58b40a214c049ca7e1466c.pnj" alt="300x250 Ad" style="max-width:300px;width:100%;border-radius:8px;display:block;margin:0 auto;" />
+            <div style="font-size:9px;color:#666;margin-top:4px;font-family:monospace;">Active · Sidebar Display</div>
         </div>
 
         <!-- ===== UPDATES SECTION ===== -->
@@ -3608,14 +3667,10 @@
         </section>
 
         <!-- ===== AD 3: BANNER 468x60 (Zone 29116015) ===== -->
-        <!-- ============================================================ -->
-        <!-- PATREON+ AD NETWORK · BANNER 468x60                          -->
-        <!-- Zone: 29116015  |  Clicks → https://link.me/danceplanet     -->
-        <!-- ============================================================ -->
-        <div class="ad-468" style="background:linear-gradient(145deg,#1a1724,#0f0d15); border:1px dashed rgba(255,215,0,0.3); border-radius:12px; padding:12px; text-align:center; font-family:'Inter',Arial,sans-serif; cursor:pointer; transition:0.2s; max-width:100%; backdrop-filter:blur(4px); min-height:80px; display:flex; flex-direction:column; align-items:center; justify-content:center;" onclick="window.open('https://link.me/danceplanet','_blank');">
-            <div style="background:rgba(255,215,0,0.15); padding:4px 12px; border-radius:30px; font-size:10px; letter-spacing:0.5px; color:#f5c842; display:inline-block; margin-bottom:6px; text-transform:uppercase; font-weight:800;">📢 Banner 468x60 · Zone 29116015</div>
-            <img src="https://64.media.tumblr.com/ab73080c6af155ceef00c7602797f87e/a1321f7c98fdd937-b6/s1280x1920/60e1d888c9dee21cf6b4bd718b12e447bbfb63fd.pnj" alt="468x60 Ad" style="max-width:468px; width:100%; border-radius:6px; display:block; margin:0 auto;" />
-            <div style="font-size:9px; color:#666; margin-top:4px; font-family:monospace;">Active · Footer / Secondary</div>
+        <div class="ad-468" style="background:linear-gradient(145deg,#1a1724,#0f0d15);border:1px dashed rgba(255,215,0,0.3);border-radius:12px;padding:12px;text-align:center;font-family:'Inter',Arial,sans-serif;cursor:pointer;transition:0.2s;max-width:100%;backdrop-filter:blur(4px);min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;" onclick="window.open('https://link.me/danceplanet','_blank');">
+            <div style="background:rgba(255,215,0,0.15);padding:4px 12px;border-radius:30px;font-size:10px;letter-spacing:0.5px;color:#f5c842;display:inline-block;margin-bottom:6px;text-transform:uppercase;font-weight:800;">📢 Banner 468x60 · Zone 29116015</div>
+            <img src="https://64.media.tumblr.com/ab73080c6af155ceef00c7602797f87e/a1321f7c98fdd937-b6/s1280x1920/60e1d888c9dee21cf6b4bd718b12e447bbfb63fd.pnj" alt="468x60 Ad" style="max-width:468px;width:100%;border-radius:6px;display:block;margin:0 auto;" />
+            <div style="font-size:9px;color:#666;margin-top:4px;font-family:monospace;">Active · Footer / Secondary</div>
         </div>
 
         <!-- ===== TESTIMONIALS ===== -->
@@ -3641,21 +3696,17 @@
         </section>
 
         <!-- ===== AD 4: NATIVE BANNER (Zone 29116016) ===== -->
-        <!-- ============================================================ -->
-        <!-- PATREON+ AD NETWORK · NATIVE BANNER                          -->
-        <!-- Zone: 29116016  |  Clicks → https://link.me/danceplanet     -->
-        <!-- ============================================================ -->
-        <div class="ad-native" style="background:linear-gradient(145deg,#1f1a2e,#13101c); border:1px solid #2a2340; border-radius:12px; padding:16px; font-family:'Inter',Arial,sans-serif; cursor:pointer; transition:0.2s; max-width:100%;" onclick="window.open('https://link.me/danceplanet','_blank');">
-            <div style="background:rgba(255,215,0,0.15); padding:4px 12px; border-radius:30px; font-size:10px; letter-spacing:0.5px; color:#f5c842; display:inline-block; margin-bottom:8px; text-transform:uppercase; font-weight:800;">📰 Native Banner · Zone 29116016</div>
-            <div style="display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
-                <img src="https://64.media.tumblr.com/652a1428c1abf7d3adc28b297a184a22/739808f3065e0afd-09/s1280x1920/62fe2088d6f4e223e39aa83edf2f8096096311b6.pnj" alt="Native Ad" style="border-radius:10px; width:120px; height:90px; object-fit:cover; flex-shrink:0;" />
-                <div style="text-align:left; flex:1;">
-                    <strong style="color:#fff; font-size:1rem;">Discover the Uncensored Vault</strong>
-                    <p style="font-size:0.8rem; margin:2px 0; color:#b5aac9;">Access exclusive Mute &amp; Loop S2 and OLI archives via Potato Chat.</p>
-                    <span style="background:rgba(245,200,66,0.12); padding:2px 12px; border-radius:30px; font-size:0.7rem; color:#f5c842; display:inline-block;">Sponsored</span>
+        <div class="ad-native" style="background:linear-gradient(145deg,#1f1a2e,#13101c);border:1px solid #2a2340;border-radius:12px;padding:16px;font-family:'Inter',Arial,sans-serif;cursor:pointer;transition:0.2s;max-width:100%;" onclick="window.open('https://link.me/danceplanet','_blank');">
+            <div style="background:rgba(255,215,0,0.15);padding:4px 12px;border-radius:30px;font-size:10px;letter-spacing:0.5px;color:#f5c842;display:inline-block;margin-bottom:8px;text-transform:uppercase;font-weight:800;">📰 Native Banner · Zone 29116016</div>
+            <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center;">
+                <img src="https://64.media.tumblr.com/652a1428c1abf7d3adc28b297a184a22/739808f3065e0afd-09/s1280x1920/62fe2088d6f4e223e39aa83edf2f8096096311b6.pnj" alt="Native Ad" style="border-radius:10px;width:120px;height:90px;object-fit:cover;flex-shrink:0;" />
+                <div style="text-align:left;flex:1;">
+                    <strong style="color:#fff;font-size:1rem;">Discover the Uncensored Vault</strong>
+                    <p style="font-size:0.8rem;margin:2px 0;color:#b5aac9;">Access exclusive Mute &amp; Loop S2 and OLI archives via Potato Chat.</p>
+                    <span style="background:rgba(245,200,66,0.12);padding:2px 12px;border-radius:30px;font-size:0.7rem;color:#f5c842;display:inline-block;">Sponsored</span>
                 </div>
             </div>
-            <div style="font-size:9px; color:#666; margin-top:8px; font-family:monospace; text-align:center;">Active · Native Feed Placement</div>
+            <div style="font-size:9px;color:#666;margin-top:8px;font-family:monospace;text-align:center;">Active · Native Feed Placement</div>
         </div>
 
         <!-- ===== SOCIAL FEED ===== -->
@@ -3773,19 +3824,14 @@
         </section>
 
         <!-- ===== AD 5: SMARTLINK (Zone 29069505) ===== -->
-        <!-- ============================================================ -->
-        <!-- PATREON+ SMARTLINK (NATIVE / CONTEXTUAL)                     -->
-        <!-- Zone: 29069505  |  Clicks → https://tatotalk.github.io/shop -->
-        <!-- BEHAVIOR: Blends as a sponsored recommendation               -->
-        <!-- ============================================================ -->
-        <div class="ad-smart" style="background:#14111e; border-radius:12px; padding:16px 20px; border-left:4px solid #f5c842; font-family:'Inter',Arial,sans-serif; max-width:100%; margin:20px 0; transition:0.2s; cursor:pointer; box-shadow:0 4px 15px rgba(0,0,0,0.3); display:flex; align-items:center; gap:15px; flex-wrap:wrap;" onclick="window.open('https://tatotalk.github.io/shop','_blank');">
-            <span style="background:#2a2340; padding:2px 12px; border-radius:30px; font-size:9px; font-weight:700; color:#f5c842; text-transform:uppercase; letter-spacing:0.5px; white-space:nowrap;">📌 Sponsored</span>
-            <p style="flex:1; color:#c5bcd8; font-size:0.95rem; margin:0;">
-                <strong style="color:#fff; font-weight:600;">🔥 Hot offer for your location:</strong> 
+        <div class="ad-smart" style="background:#14111e;border-radius:12px;padding:16px 20px;border-left:4px solid #f5c842;font-family:'Inter',Arial,sans-serif;max-width:100%;margin:20px 0;transition:0.2s;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.3);display:flex;align-items:center;gap:15px;flex-wrap:wrap;" onclick="window.open('https://tatotalk.github.io/shop','_blank');">
+            <span style="background:#2a2340;padding:2px 12px;border-radius:30px;font-size:9px;font-weight:700;color:#f5c842;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;">📌 Sponsored</span>
+            <p style="flex:1;color:#c5bcd8;font-size:0.95rem;margin:0;">
+                <strong style="color:#fff;font-weight:600;">🔥 Hot offer for your location:</strong>
                 Exclusive access to the Vault &amp; Mute Loop S2 — <span style="color:#f5c842;">Claim now</span>
             </p>
-            <span style="color:#f5c842; font-size:1.2rem; font-weight:300; transition:0.2s;">→</span>
-            <div style="font-size:8px; color:#444; font-family:monospace; width:100%; text-align:right; margin-top:4px; border-top:1px solid #1f1a2e; padding-top:4px;">Smartlink · Zone 29069505 · Active</div>
+            <span style="color:#f5c842;font-size:1.2rem;font-weight:300;transition:0.2s;">→</span>
+            <div style="font-size:8px;color:#444;font-family:monospace;width:100%;text-align:right;margin-top:4px;border-top:1px solid #1f1a2e;padding-top:4px;">Smartlink · Zone 29069505 · Active</div>
         </div>
 
         <!-- ===== FEATURED CAROUSEL ===== -->
@@ -3796,7 +3842,7 @@
                     <!-- Slide 1: 3 products -->
                     <div class="featured-slide">
                         <!-- Qwen -->
-                        <div class="product-card" style="animation: none;">
+                        <div class="product-card" style="animation:none;">
                             <img src="https://qianwen-res.oss-accelerate.aliyuncs.com/logo_qwen3.5.png" alt="Qwen" loading="lazy" />
                             <div class="body">
                                 <span class="badge-trending">🔥 Trending</span>
@@ -3810,7 +3856,7 @@
                             </div>
                         </div>
                         <!-- Candyfloss Sunset -->
-                        <div class="product-card" style="animation: none;">
+                        <div class="product-card" style="animation:none;">
                             <img src="https://64.media.tumblr.com/1950dc7cd8f4177cc84847da75c63337/6c0c76a7c50de01e-5a/s1280x1920/0b8cf94080010fd78f1557a1945f837f6d6bb4c3.pnj" alt="Candyfloss" loading="lazy" />
                             <div class="body">
                                 <span class="badge-trending">🌸 Cute</span>
@@ -3824,7 +3870,7 @@
                             </div>
                         </div>
                         <!-- Dreamy Pink wallpaper -->
-                        <div class="product-card" style="animation: none;">
+                        <div class="product-card" style="animation:none;">
                             <img src="https://64.media.tumblr.com/2cbeebe4793c50c0fa19a275639e53c1/d5bfe4f210fd52ba-3d/s1280x1920/4976b093107aef1c3a080c8047c0c9881ca31e82.pnj" alt="Dreamy Pink" loading="lazy" />
                             <div class="body">
                                 <span class="badge-trending">🌸 Dreamy</span>
@@ -3841,7 +3887,7 @@
                     <!-- Slide 2: another 3 products -->
                     <div class="featured-slide">
                         <!-- GLM-4.5 -->
-                        <div class="product-card" style="animation: none;">
+                        <div class="product-card" style="animation:none;">
                             <img src="https://raw.githubusercontent.com/zai-org/GLM-4.5/refs/heads/main/resources/logo.svg" alt="GLM-4.5" loading="lazy" />
                             <div class="body">
                                 <span class="badge-trending">⭐ #1</span>
@@ -3855,7 +3901,7 @@
                             </div>
                         </div>
                         <!-- Pink Lotus Flow -->
-                        <div class="product-card" style="animation: none;">
+                        <div class="product-card" style="animation:none;">
                             <img src="https://64.media.tumblr.com/82c8b418b25f2cba2b3c266c1028dde1/6c0c76a7c50de01e-03/s1280x1920/5cd08a16b2a1097342927bc05130cd3b734d9e5d.pnj" alt="Pink Lotus" loading="lazy" />
                             <div class="body">
                                 <span class="badge-trending">🧘‍♀️ Zen</span>
@@ -3869,7 +3915,7 @@
                             </div>
                         </div>
                         <!-- Pink Neon wallpaper -->
-                        <div class="product-card" style="animation: none;">
+                        <div class="product-card" style="animation:none;">
                             <img src="https://64.media.tumblr.com/b43e4c9c8be7b1e2d81036145747c1c6/d5bfe4f210fd52ba-ca/s1280x1920/ca058641c920bacc0ecdb1b7224b280ba297a157.pnj" alt="Pink Neon" loading="lazy" />
                             <div class="body">
                                 <span class="badge-trending">💖 Neon</span>
@@ -4002,6 +4048,8 @@
                     <a href="#" target="_blank"><span class="emoji">⭐</span> Review on Gumroad</a>
                 </div>
             </div>
+            <!-- result message inside popup -->
+            <div id="popup-result-message" style="margin-top:1.2rem;text-align:center;color:#34d399;font-weight:700;font-size:0.95rem;display:none;"></div>
         </div>
     </div>
 
@@ -4009,7 +4057,7 @@
     <button class="back-to-top" id="backToTop" aria-label="Back to top">⬆</button>
 
     <!-- ============================================================ -->
-    <!-- SUPPORT BUTTON + MODAL (added)                              -->
+    <!-- SUPPORT BUTTON + MODAL                                        -->
     <!-- ============================================================ -->
     <button id="support-toggle" aria-label="Open support preview">
         <span class="icon">🛟</span> Support
@@ -4135,70 +4183,11 @@
             document.addEventListener('click', firePopunder);
         })();
     </script>
-    <div style="font-size:8px; color:#333; text-align:center; font-family:monospace; margin:4px 0;">Popunder · Zone 29069502 · Active (1st click)</div>
-
-    <!-- ============================================================ -->
-    <!-- AD 7: SIDE POP-UP (Zone 29116017) – slides in after 3s        -->
-    <!-- ============================================================ -->
-    <div class="pop-overlay" id="popOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; display:none; justify-content:flex-end; align-items:center; padding:20px; pointer-events:none; box-sizing:border-box;">
-        <div style="background:#1a1628; border:1px solid rgba(245,200,66,0.4); border-radius:20px; padding:25px 20px 20px; max-width:380px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.9),0 0 40px rgba(245,200,66,0.12); pointer-events:auto; position:relative; animation:slideRight 0.6s cubic-bezier(0.16,1,0.3,1) forwards; transform:translateX(120%); font-family:'Inter',Arial,sans-serif; box-sizing:border-box;">
-            <button class="close" id="popClose" style="position:absolute; top:12px; right:16px; background:none; border:none; color:#888; font-size:1.6rem; cursor:pointer; transition:0.2s; line-height:1;">&times;</button>
-            <div style="display:inline-block; background:rgba(245,200,66,0.15); padding:2px 14px; border-radius:30px; font-size:0.65rem; font-weight:700; color:#f5c842; letter-spacing:1px; text-transform:uppercase; margin-bottom:10px;">⚡ Exclusive Offer</div>
-            <img src="https://64.media.tumblr.com/190471fc65cc0b657944c08ed20651be/739808f3065e0afd-5a/s1280x1920/4f9328bb7e7ec7e42001a5d64a15486c89db7aa0.pnj" alt="Side Pop-up" style="width:100%; border-radius:12px; margin:8px 0 14px; border:1px solid #2a2340;" />
-            <h3 style="font-size:1.2rem; font-weight:800; color:#fff; margin:0 0 4px;">Unlock The Vault Now</h3>
-            <p style="font-size:0.9rem; color:#b5aac9; margin:6px 0 16px;">Get instant access to Mute &amp; Loop S2, OLI archives, and the complete Content Map.</p>
-            <button class="cta" onclick="window.open('https://link.me/danceplanet','_blank'); document.getElementById('popOverlay').classList.remove('active');" style="background:linear-gradient(135deg,#f5c842,#e07c00); border:none; color:#0b0a0f; font-weight:800; padding:12px 30px; border-radius:40px; cursor:pointer; font-size:0.95rem; width:100%; transition:0.2s;">
-                🔓 Claim Access — $5.99/mo
-            </button>
-            <div style="font-size:8px; color:#555; text-align:center; margin-top:12px; font-family:monospace;">Side Pop-up · Zone 29116017 · Active</div>
-        </div>
-    </div>
-
-    <script>
-        (function() {
-            var overlay = document.getElementById('popOverlay');
-            var closeBtn = document.getElementById('popClose');
-            function show() { overlay.style.display = 'flex'; overlay.classList.add('active'); }
-            function hide() { overlay.style.display = 'none'; overlay.classList.remove('active'); }
-            closeBtn.addEventListener('click', hide);
-            overlay.addEventListener('click', function(e) { if (e.target === overlay) hide(); });
-            setTimeout(show, 3000);
-        })();
-    </script>
+    <div style="font-size:8px;color:#333;text-align:center;font-family:monospace;margin:4px 0;">Popunder · Zone 29069502 · Active (1st click)</div>
 
     <!-- ============================================================ -->
     <!-- AD 8: SOCIAL BAR (Zone 29069504) – Sticky bottom              -->
     <!-- ============================================================ -->
-    <style>
-        .ad-social {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(15, 13, 21, 0.93);
-            backdrop-filter: blur(12px);
-            border-top: 1px solid rgba(245, 200, 66, 0.25);
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            z-index: 999;
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
-            font-family: 'Inter', Arial, sans-serif;
-            box-sizing: border-box;
-        }
-        .ad-social .l { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
-        .ad-social .l .label { font-size: 8px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-right: 4px; }
-        .ad-social .l .ico { font-size: 1.4rem; color: #f5c842; cursor: pointer; transition: 0.2s; }
-        .ad-social .l .ico:hover { color: #fff; transform: scale(1.1); }
-        .ad-social .r { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
-        .ad-social .r span { font-size: 0.8rem; color: #a095b5; }
-        .ad-social .r .btn { background: #f5c842; border: none; color: #0b0a0f; font-weight: 800; padding: 6px 18px; border-radius: 30px; font-size: 0.8rem; cursor: pointer; transition: 0.2s; }
-        .ad-social .r .btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(245, 200, 66, 0.4); }
-        .ad-social .r .st { font-size: 10px; color: #555; }
-    </style>
     <div class="ad-social" id="zone-29069504">
         <div class="l">
             <span class="label">📊 Social Bar · 29069504</span>
@@ -4215,7 +4204,7 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- JAVASCRIPT — ALL THE MAGIC (existing) + support modal        -->
+    <!-- JAVASCRIPT — ALL THE MAGIC                                    -->
     <!-- ============================================================ -->
     <script>
         (function() {
@@ -4233,19 +4222,19 @@
                 if (index < 0) index = heroSlides.length - 1;
                 if (index >= heroSlides.length) index = 0;
                 heroIndex = index;
-                heroTrack.style.transform = `translateX(-${index * 100}%)`;
-                heroDots.forEach((dot, i) => {
+                heroTrack.style.transform = 'translateX(-' + (index * 100) + '%)';
+                heroDots.forEach(function(dot, i) {
                     dot.classList.toggle('active', i === index);
                 });
             }
 
-            heroDots.forEach(dot => {
+            heroDots.forEach(function(dot) {
                 dot.addEventListener('click', function() {
                     goToHero(parseInt(this.dataset.index));
                 });
             });
 
-            setInterval(() => {
+            setInterval(function() {
                 goToHero(heroIndex + 1);
             }, 4000);
 
@@ -4261,32 +4250,32 @@
                 if (index < 0) index = featuredSlides.length - 1;
                 if (index >= featuredSlides.length) index = 0;
                 featuredIndex = index;
-                featuredTrack.style.transform = `translateX(-${index * 100}%)`;
-                featuredDots.forEach((dot, i) => {
+                featuredTrack.style.transform = 'translateX(-' + (index * 100) + '%)';
+                featuredDots.forEach(function(dot, i) {
                     dot.classList.toggle('active', i === index);
                 });
             }
 
-            featuredDots.forEach(dot => {
+            featuredDots.forEach(function(dot) {
                 dot.addEventListener('click', function() {
                     goToFeatured(parseInt(this.dataset.index));
                 });
             });
 
-            setInterval(() => {
+            setInterval(function() {
                 goToFeatured(featuredIndex + 1);
             }, 5000);
 
             // =============================================================
             //  2.  FAQ ACCORDION
             // =============================================================
-            const faqItems = document.querySelectorAll('.faq-item');
+            var faqItems = document.querySelectorAll('.faq-item');
 
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
+            faqItems.forEach(function(item) {
+                var question = item.querySelector('.faq-question');
                 question.addEventListener('click', function() {
-                    const isActive = item.classList.contains('active');
-                    faqItems.forEach(i => i.classList.remove('active'));
+                    var isActive = item.classList.contains('active');
+                    faqItems.forEach(function(i) { i.classList.remove('active'); });
                     if (!isActive) {
                         item.classList.add('active');
                     }
@@ -4296,12 +4285,12 @@
             // =============================================================
             //  3.  TABS — FILTER PRODUCTS
             // =============================================================
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            const productCards = document.querySelectorAll('#product-list .product-card');
+            var tabButtons = document.querySelectorAll('.tab-btn');
+            var productCards = document.querySelectorAll('#product-list .product-card');
 
             function filterProducts(category) {
-                productCards.forEach(card => {
-                    const cardCategory = card.dataset.category;
+                productCards.forEach(function(card) {
+                    var cardCategory = card.dataset.category;
                     if (category === 'all' || cardCategory === category) {
                         card.classList.remove('hidden');
                     } else {
@@ -4309,14 +4298,14 @@
                     }
                 });
 
-                tabButtons.forEach(btn => {
+                tabButtons.forEach(function(btn) {
                     btn.classList.toggle('active', btn.dataset.tab === category);
                 });
             }
 
-            tabButtons.forEach(btn => {
+            tabButtons.forEach(function(btn) {
                 btn.addEventListener('click', function() {
-                    const tab = this.dataset.tab;
+                    var tab = this.dataset.tab;
                     filterProducts(tab);
                 });
             });
@@ -4324,15 +4313,15 @@
             // =============================================================
             //  4.  TOGGLE LOGIC  (Subscribe → show payment options)
             // =============================================================
-            const subButtons = document.querySelectorAll('.btn-subscribe');
+            var subButtons = document.querySelectorAll('.btn-subscribe');
 
-            subButtons.forEach(btn => {
+            subButtons.forEach(function(btn) {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const product = this.dataset.product;
-                    const wrapper = document.getElementById('options-' + product);
+                    var product = this.dataset.product;
+                    var wrapper = document.getElementById('options-' + product);
 
-                    const isOpen = wrapper.classList.contains('open');
+                    var isOpen = wrapper.classList.contains('open');
                     if (isOpen) {
                         wrapper.classList.remove('open');
                         this.textContent = '💗 Subscribe';
@@ -4349,15 +4338,15 @@
             // =============================================================
             //  5.  STRIPE
             // =============================================================
-            const STRIPE_PUBLISHABLE_KEY = 'pk_test_6pRNASCoBOKtIshFeQd4XMUh';
-            const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-            const STRIPE_SESSION_PLACEHOLDER = 'cs_test_xxxxxxxxxxxx';
+            var STRIPE_PUBLISHABLE_KEY = 'pk_test_6pRNASCoBOKtIshFeQd4XMUh';
+            var stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+            var STRIPE_SESSION_PLACEHOLDER = 'cs_test_xxxxxxxxxxxx';
 
-            document.querySelectorAll('.stripe-checkout-btn').forEach(btn => {
+            document.querySelectorAll('.stripe-checkout-btn').forEach(function(btn) {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const product = this.dataset.product;
-                    const statusEl = document.getElementById('status-' + product);
+                    var product = this.dataset.product;
+                    var statusEl = document.getElementById('status-' + product);
 
                     if (STRIPE_SESSION_PLACEHOLDER === 'cs_test_xxxxxxxxxxxx') {
                         statusEl.className = 'product-status error';
@@ -4369,13 +4358,13 @@
                     statusEl.textContent = '✨ Redirecting to Stripe…';
 
                     stripe.redirectToCheckout({ sessionId: STRIPE_SESSION_PLACEHOLDER })
-                        .then(result => {
+                        .then(function(result) {
                             if (result.error) {
                                 statusEl.className = 'product-status error';
                                 statusEl.textContent = result.error.message || 'Stripe error.';
                             }
                         })
-                        .catch(err => {
+                        .catch(function(err) {
                             statusEl.className = 'product-status error';
                             statusEl.textContent = 'Unexpected error. See console.';
                             console.error(err);
@@ -4386,9 +4375,9 @@
             // =============================================================
             //  6.  PAYPAL — on demand (for product cards)
             // =============================================================
-            const paypalRendered = {};
+            var paypalRendered = {};
 
-            const amountMap = {
+            var amountMap = {
                 qwen: '0.00',
                 glm45: '0.00',
                 deepseek: '0.00',
@@ -4412,22 +4401,23 @@
             function renderPayPalOnDemand(productId) {
                 if (paypalRendered[productId]) return;
 
-                const amount = amountMap[productId];
+                var amount = amountMap[productId];
                 if (!amount) return;
 
-                const containerId = 'paypal-' + productId;
-                const containerEl = document.getElementById(containerId);
+                var containerId = 'paypal-' + productId;
+                var containerEl = document.getElementById(containerId);
                 if (!containerEl) return;
 
-                if (typeof paypal_sdk === 'undefined') {
-                    containerEl.innerHTML = '<p style="color:#9a8aaa; font-size:0.8rem;">⏳ Loading PayPal SDK…</p>';
-                    setTimeout(() => renderPayPalOnDemand(productId), 600);
+                // Use `paypal` (production SDK) – the sandbox duplicate has been removed.
+                if (typeof paypal === 'undefined') {
+                    containerEl.innerHTML = '<p style="color:#9a8aaa;font-size:0.8rem;">⏳ Loading PayPal SDK…</p>';
+                    setTimeout(function() { renderPayPalOnDemand(productId); }, 600);
                     return;
                 }
 
                 containerEl.innerHTML = '';
 
-                paypal_sdk.Buttons({
+                paypal.Buttons({
                     style: {
                         layout: 'vertical',
                         color: 'blue',
@@ -4440,42 +4430,51 @@
                         return actions.order.create({
                             purchase_units: [{
                                 amount: { value: amount, currency_code: 'USD' },
-                                description: `Patreon+ · ${productId}`,
+                                description: 'Patreon+ · ' + productId,
                             }],
                             application_context: { shipping_preference: 'NO_SHIPPING' },
                         });
                     },
                     onApprove: function(data, actions) {
                         return actions.order.capture().then(function(details) {
-                            const statusEl = document.getElementById('status-' + productId);
+                            var statusEl = document.getElementById('status-' + productId);
                             statusEl.className = 'product-status success';
-                            statusEl.textContent = `💖 Subscription confirmed! Transaction: ${details.id || 'N/A'}`;
+                            statusEl.textContent = '💖 Subscription confirmed! Transaction: ' + (details
+                                .id || 'N/A');
                             console.log('PayPal capture:', details);
                         });
                     },
                     onError: function(err) {
-                        const statusEl = document.getElementById('status-' + productId);
+                        var statusEl = document.getElementById('status-' + productId);
                         statusEl.className = 'product-status error';
                         statusEl.textContent = 'PayPal error: ' + (err.message || 'Please try again.');
                         console.error('PayPal error:', err);
                     },
                     onCancel: function() {
-                        const statusEl = document.getElementById('status-' + productId);
+                        var statusEl = document.getElementById('status-' + productId);
                         statusEl.className = 'product-status info';
                         statusEl.textContent = 'Subscription cancelled.';
                     },
-                }).render('#' + containerId).then(() => {
+                }).render('#' + containerId).then(function() {
                     paypalRendered[productId] = true;
-                }).catch(err => {
+                }).catch(function(err) {
                     console.error('PayPal render error:', err);
-                    containerEl.innerHTML = '<p style="color:#9a8aaa; font-size:0.8rem;">⚠️ Could not load PayPal.</p>';
+                    containerEl.innerHTML = '<p style="color:#9a8aaa;font-size:0.8rem;">⚠️ Could not load PayPal.</p>';
                 });
             }
 
             // =============================================================
             //  7.  PROMO POP-UP — PAYPAL BUTTON
             // =============================================================
-            if (typeof paypal !== 'undefined') {
+            (function renderPopupPayPal() {
+                var container = document.getElementById('paypal-button-container-popup');
+                if (!container) return;
+
+                if (typeof paypal === 'undefined') {
+                    setTimeout(renderPopupPayPal, 500);
+                    return;
+                }
+
                 paypal.Buttons({
                     style: {
                         layout: 'vertical',
@@ -4492,54 +4491,31 @@
                     },
                     onApprove: function(data, actions) {
                         return actions.order.capture().then(function(details) {
-                            document.getElementById('result-message').innerHTML =
-                                '✅ PayPal transaction completed by ' + details.payer.name.given_name + '!';
+                            var msg = document.getElementById('popup-result-message');
+                            if (msg) {
+                                msg.style.display = 'block';
+                                msg.textContent = '✅ PayPal transaction completed by ' + details.payer.name
+                                    .given_name + '!';
+                            }
                         });
                     },
                     onError: function(err) {
-                        document.getElementById('result-message').innerHTML =
-                            '❌ PayPal error: ' + err.message;
+                        var msg = document.getElementById('popup-result-message');
+                        if (msg) {
+                            msg.style.display = 'block';
+                            msg.textContent = '❌ PayPal error: ' + err.message;
+                            msg.style.color = '#f87171';
+                        }
                     }
                 }).render('#paypal-button-container-popup');
-            } else {
-                setTimeout(function() {
-                    if (typeof paypal !== 'undefined') {
-                        paypal.Buttons({
-                            style: {
-                                layout: 'vertical',
-                                color: 'gold',
-                                shape: 'rect',
-                                label: 'paypal',
-                                height: 48,
-                                tagline: false,
-                            },
-                            createOrder: function(data, actions) {
-                                return actions.order.create({
-                                    purchase_units: [{ amount: { value: '3.00' } }]
-                                });
-                            },
-                            onApprove: function(data, actions) {
-                                return actions.order.capture().then(function(details) {
-                                    document.getElementById('result-message').innerHTML =
-                                        '✅ PayPal transaction completed by ' + details.payer.name
-                                        .given_name + '!';
-                                });
-                            },
-                            onError: function(err) {
-                                document.getElementById('result-message').innerHTML =
-                                    '❌ PayPal error: ' + err.message;
-                            }
-                        }).render('#paypal-button-container-popup');
-                    }
-                }, 1000);
-            }
+            })();
 
             // =============================================================
             //  8.  PROMO POP-UP CONTROLS
             // =============================================================
-            const overlay = document.getElementById('popupOverlay');
-            const showBtn = document.getElementById('showPopupBtn');
-            const closeBtn = document.getElementById('closePopupBtn');
+            var overlay = document.getElementById('popupOverlay');
+            var showBtn = document.getElementById('showPopupBtn');
+            var closeBtn = document.getElementById('closePopupBtn');
 
             function showPopup() {
                 overlay.classList.add('active');
@@ -4567,9 +4543,9 @@
             // =============================================================
             //  9.  GOOGLE FORM MODAL — CHAT BUTTON
             // =============================================================
-            const formModal = document.getElementById('formModal');
-            const openFormBtn = document.getElementById('openFormBtn');
-            const closeFormBtn = document.getElementById('closeFormBtn');
+            var formModal = document.getElementById('formModal');
+            var openFormBtn = document.getElementById('openFormBtn');
+            var closeFormBtn = document.getElementById('closeFormBtn');
 
             function openForm() {
                 formModal.classList.add('active');
@@ -4598,14 +4574,11 @@
             //  10. DEMO NOTE
             // =============================================================
             if (STRIPE_SESSION_PLACEHOLDER === 'cs_test_xxxxxxxxxxxx') {
-                const note = document.createElement('div');
+                var note = document.createElement('div');
                 note.style.cssText =
-                    'background:rgba(139,92,246,0.06); backdrop-filter:blur(4px); border:1px solid rgba(180,140,255,0.15); padding:0.75rem 1.25rem; border-radius:999px; margin:1.5rem 0 0; font-size:0.9rem; color:#c4b5d4; text-align:center; font-family: "Nunito", sans-serif;';
+                    'background:rgba(139,92,246,0.06);backdrop-filter:blur(4px);border:1px solid rgba(180,140,255,0.15);padding:0.75rem 1.25rem;border-radius:999px;margin:1.5rem 0 0;font-size:0.9rem;color:#c4b5d4;text-align:center;font-family:"Nunito",sans-serif;';
                 note.innerHTML =
-                    `
-                💡 <strong>Stripe demo:</strong> Replace <code style="background:rgba(255,255,255,0.04);padding:0.1rem 0.5rem;border-radius:4px;">STRIPE_SESSION_PLACEHOLDER</code> with a real Checkout Session ID.
-                <br>Use the Stripe CLI: <code style="background:rgba(255,255,255,0.04);padding:0.1rem 0.5rem;border-radius:4px;">stripe checkout sessions create --success-url "https://example.com/success" --cancel-url "https://example.com/cancel" --line-items '[{"price":"price_123","quantity":1}]'</code>
-              `;
+                    '💡 <strong>Stripe demo:</strong> Replace <code style="background:rgba(255,255,255,0.04);padding:0.1rem 0.5rem;border-radius:4px;">STRIPE_SESSION_PLACEHOLDER</code> with a real Checkout Session ID.<br>Use the Stripe CLI: <code style="background:rgba(255,255,255,0.04);padding:0.1rem 0.5rem;border-radius:4px;">stripe checkout sessions create --success-url "https://example.com/success" --cancel-url "https://example.com/cancel" --line-items \'[{"price":"price_123","quantity":1}]\'</code>';
                 document.querySelector('#product-list').parentNode.insertBefore(note, document.querySelector(
                 '#product-list'));
             }
@@ -4613,7 +4586,7 @@
             // =============================================================
             //  11. BACK TO TOP
             // =============================================================
-            const backToTopBtn = document.getElementById('backToTop');
+            var backToTopBtn = document.getElementById('backToTop');
 
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 300) {
@@ -4631,9 +4604,9 @@
             //  12. SUPPORT MODAL — all logic
             // =============================================================
             (function() {
-                const modalWrapper = document.getElementById('support-modal-wrapper');
-                const openBtn = document.getElementById('support-toggle');
-                const closeBtn = document.getElementById('support-modal-close');
+                var modalWrapper = document.getElementById('support-modal-wrapper');
+                var openBtn = document.getElementById('support-toggle');
+                var closeBtn = document.getElementById('support-modal-close');
 
                 function openModal() {
                     modalWrapper.classList.add('open');
@@ -4648,30 +4621,30 @@
 
                 openBtn.addEventListener('click', openModal);
                 closeBtn.addEventListener('click', closeModal);
-                modalWrapper.addEventListener('click', (e) => {
+                modalWrapper.addEventListener('click', function(e) {
                     if (e.target === modalWrapper) closeModal();
                 });
-                document.addEventListener('keydown', (e) => {
+                document.addEventListener('keydown', function(e) {
                     if (e.key === 'Escape' && modalWrapper.classList.contains('open')) closeModal();
                 });
 
-                const canvas = document.getElementById('support-bg-canvas');
-                const ctx = canvas.getContext('2d');
-                let w, h;
+                var canvas = document.getElementById('support-bg-canvas');
+                var ctx = canvas.getContext('2d');
+                var w, h;
 
                 function resizeCanvas() {
-                    const container = document.getElementById('support-app-container');
+                    var container = document.getElementById('support-app-container');
                     w = canvas.width = container.clientWidth;
                     h = canvas.height = container.clientHeight;
                 }
                 window.addEventListener('resize', resizeCanvas);
-                const ro = new ResizeObserver(() => resizeCanvas());
+                var ro = new ResizeObserver(function() { resizeCanvas(); });
                 ro.observe(document.getElementById('support-app-container'));
                 resizeCanvas();
 
-                const blobs = [];
-                const numBlobs = 10;
-                const colors = [
+                var blobs = [];
+                var numBlobs = 10;
+                var colors = [
                     { r: 120, g: 80, b: 255 },
                     { r: 0, g: 150, b: 255 },
                     { r: 0, g: 255, b: 200 },
@@ -4684,8 +4657,8 @@
                     { r: 255, g: 180, b: 80 },
                 ];
 
-                for (let i = 0; i < numBlobs; i++) {
-                    const c = colors[i % colors.length];
+                for (var i = 0; i < numBlobs; i++) {
+                    var c = colors[i % colors.length];
                     blobs.push({
                         x: Math.random() * w,
                         y: Math.random() * h,
@@ -4704,11 +4677,11 @@
                     });
                 }
 
-                let time = 0;
+                var time = 0;
 
                 function drawBackground() {
                     ctx.clearRect(0, 0, w, h);
-                    const grad = ctx.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, Math.max(w, h) * 0.8);
+                    var grad = ctx.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, Math.max(w, h) * 0.8);
                     grad.addColorStop(0, '#1a1a2e');
                     grad.addColorStop(1, '#0b0b1a');
                     ctx.fillStyle = grad;
@@ -4716,44 +4689,45 @@
 
                     time += 0.005;
 
-                    for (const blob of blobs) {
+                    for (var j = 0; j < blobs.length; j++) {
+                        var blob = blobs[j];
                         blob.angle += blob.orbitSpeed;
-                        const orbitX = Math.cos(blob.angle + blob.phaseX) * blob.orbitRadius;
-                        const orbitY = Math.sin(blob.angle * 0.7 + blob.phaseY) * blob.orbitRadius * 0.6;
-                        const floatX = Math.sin(time * blob.speedX + blob.phaseX) * 60;
-                        const floatY = Math.cos(time * blob.speedY + blob.phaseY) * 60;
-                        const cx = w / 2 + orbitX + floatX;
-                        const cy = h / 2 + orbitY + floatY;
-                        const pulse = 1 + Math.sin(time * 0.3 + blob.phaseX) * 0.08;
-                        const radius = blob.radius * pulse;
+                        var orbitX = Math.cos(blob.angle + blob.phaseX) * blob.orbitRadius;
+                        var orbitY = Math.sin(blob.angle * 0.7 + blob.phaseY) * blob.orbitRadius * 0.6;
+                        var floatX = Math.sin(time * blob.speedX + blob.phaseX) * 60;
+                        var floatY = Math.cos(time * blob.speedY + blob.phaseY) * 60;
+                        var cx = w / 2 + orbitX + floatX;
+                        var cy = h / 2 + orbitY + floatY;
+                        var pulse = 1 + Math.sin(time * 0.3 + blob.phaseX) * 0.08;
+                        var radius = blob.radius * pulse;
 
-                        const grad2 = ctx.createRadialGradient(
+                        var grad2 = ctx.createRadialGradient(
                             cx - radius * 0.2, cy - radius * 0.2, 0,
                             cx, cy, radius
                         );
-                        const a = blob.alpha;
-                        grad2.addColorStop(0, `rgba(${blob.r}, ${blob.g}, ${blob.b}, ${a * 0.9})`);
-                        grad2.addColorStop(0.3, `rgba(${blob.r}, ${blob.g}, ${blob.b}, ${a * 0.5})`);
-                        grad2.addColorStop(0.7, `rgba(${blob.r}, ${blob.g}, ${blob.b}, ${a * 0.2})`);
-                        grad2.addColorStop(1, `rgba(${blob.r}, ${blob.g}, ${blob.b}, 0)`);
+                        var a = blob.alpha;
+                        grad2.addColorStop(0, 'rgba(' + blob.r + ',' + blob.g + ',' + blob.b + ',' + (a * 0.9) + ')');
+                        grad2.addColorStop(0.3, 'rgba(' + blob.r + ',' + blob.g + ',' + blob.b + ',' + (a * 0.5) + ')');
+                        grad2.addColorStop(0.7, 'rgba(' + blob.r + ',' + blob.g + ',' + blob.b + ',' + (a * 0.2) + ')');
+                        grad2.addColorStop(1, 'rgba(' + blob.r + ',' + blob.g + ',' + blob.b + ',0)');
                         ctx.beginPath();
                         ctx.arc(cx, cy, radius, 0, Math.PI * 2);
                         ctx.fillStyle = grad2;
                         ctx.fill();
 
-                        const grad3 = ctx.createRadialGradient(
+                        var grad3 = ctx.createRadialGradient(
                             cx - radius * 0.1, cy - radius * 0.1, 0,
                             cx, cy, radius * 0.5
                         );
-                        grad3.addColorStop(0, `rgba(${blob.r}, ${blob.g}, ${blob.b}, ${a * 0.15})`);
-                        grad3.addColorStop(1, `rgba(${blob.r}, ${blob.g}, ${blob.b}, 0)`);
+                        grad3.addColorStop(0, 'rgba(' + blob.r + ',' + blob.g + ',' + blob.b + ',' + (a * 0.15) + ')');
+                        grad3.addColorStop(1, 'rgba(' + blob.r + ',' + blob.g + ',' + blob.b + ',0)');
                         ctx.beginPath();
                         ctx.arc(cx, cy, radius * 0.5, 0, Math.PI * 2);
                         ctx.fillStyle = grad3;
                         ctx.fill();
                     }
 
-                    const vignette = ctx.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, Math.max(w, h) * 0.7);
+                    var vignette = ctx.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, Math.max(w, h) * 0.7);
                     vignette.addColorStop(0, 'rgba(0,0,0,0)');
                     vignette.addColorStop(1, 'rgba(0,0,0,0.25)');
                     ctx.fillStyle = vignette;
@@ -4764,12 +4738,12 @@
                 drawBackground();
 
                 (function() {
-                    const container = document.getElementById('support-particles');
+                    var container = document.getElementById('support-particles');
                     if (!container) return;
-                    for (let i = 0; i < 35; i++) {
-                        const p = document.createElement('div');
+                    for (var i = 0; i < 35; i++) {
+                        var p = document.createElement('div');
                         p.className = 'particle';
-                        const size = 2 + Math.random() * 4;
+                        var size = 2 + Math.random() * 4;
                         p.style.width = size + 'px';
                         p.style.height = size + 'px';
                         p.style.left = Math.random() * 100 + '%';
@@ -4780,111 +4754,112 @@
                     }
                 })();
 
-                const intro = document.getElementById('support-intro-screen');
-                const grid = document.getElementById('support-grid-screen');
-                const action = document.getElementById('support-action-screen');
-                const split = document.getElementById('support-split-screen');
-                const squares = document.querySelectorAll('#support-grid-screen .square');
-                const rects = document.querySelectorAll('#support-action-screen .action-rect');
+                var intro = document.getElementById('support-intro-screen');
+                var grid = document.getElementById('support-grid-screen');
+                var action = document.getElementById('support-action-screen');
+                var split = document.getElementById('support-split-screen');
+                var squares = document.querySelectorAll('#support-grid-screen .square');
+                var rects = document.querySelectorAll('#support-action-screen .action-rect');
 
                 function switchTo(id) {
-                    [intro, grid, action, split].forEach(el => {
+                    [intro, grid, action, split].forEach(function(el) {
                         el.classList.remove('active');
                         el.setAttribute('aria-hidden', 'true');
                     });
-                    const target = document.getElementById(id);
+                    var target = document.getElementById(id);
                     if (target) {
                         target.classList.add('active');
                         target.removeAttribute('aria-hidden');
-                        const first = target.querySelector('.square, .action-rect, .half-link');
+                        var first = target.querySelector('.square, .action-rect, .half-link');
                         if (first) first.focus();
                     }
                 }
 
-                intro.addEventListener('click', () => switchTo('support-grid-screen'));
-                intro.addEventListener('keydown', (e) => {
+                intro.addEventListener('click', function() { switchTo('support-grid-screen'); });
+                intro.addEventListener('keydown', function(e) {
                     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault();
                         switchTo('support-grid-screen'); }
                 });
 
-                squares.forEach(sq => {
-                    sq.addEventListener('click', (e) => { e.stopPropagation();
+                squares.forEach(function(sq) {
+                    sq.addEventListener('click', function(e) { e.stopPropagation();
                         switchTo('support-action-screen'); });
-                    sq.addEventListener('keydown', (e) => {
+                    sq.addEventListener('keydown', function(e) {
                         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault();
                             switchTo('support-action-screen'); }
                     });
                 });
 
-                rects.forEach(rect => {
-                    rect.addEventListener('click', (e) => { e.stopPropagation();
+                rects.forEach(function(rect) {
+                    rect.addEventListener('click', function(e) { e.stopPropagation();
                         switchTo('support-split-screen'); });
-                    rect.addEventListener('keydown', (e) => {
+                    rect.addEventListener('keydown', function(e) {
                         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault();
                             switchTo('support-split-screen'); }
                     });
                 });
 
-                squares.forEach(sq => {
-                    sq.addEventListener('mousemove', (e) => {
-                        const r = sq.getBoundingClientRect();
-                        const x = (e.clientX - r.left) / r.width - 0.5;
-                        const y = (e.clientY - r.top) / r.height - 0.5;
+                squares.forEach(function(sq) {
+                    sq.addEventListener('mousemove', function(e) {
+                        var r = sq.getBoundingClientRect();
+                        var x = (e.clientX - r.left) / r.width - 0.5;
+                        var y = (e.clientY - r.top) / r.height - 0.5;
                         sq.style.transform =
-                            `perspective(800px) rotateX(${y * -12}deg) rotateY(${x * 12}deg) scale(1.02)`;
+                            'perspective(800px) rotateX(' + (y * -12) + 'deg) rotateY(' + (x * 12) +
+                            'deg) scale(1.02)';
                     });
-                    sq.addEventListener('mouseleave', () => {
+                    sq.addEventListener('mouseleave', function() {
                         sq.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
                     });
                 });
 
-                rects.forEach(rect => {
-                    const ink = rect.querySelector('.ink');
-                    rect.addEventListener('mousemove', (e) => {
-                        const r = rect.getBoundingClientRect();
+                rects.forEach(function(rect) {
+                    var ink = rect.querySelector('.ink');
+                    rect.addEventListener('mousemove', function(e) {
+                        var r = rect.getBoundingClientRect();
                         ink.style.left = (e.clientX - r.left) + 'px';
                         ink.style.top = (e.clientY - r.top) + 'px';
                     });
-                    rect.addEventListener('mouseenter', () => {
+                    rect.addEventListener('mouseenter', function() {
                         ink.style.opacity = '1';
-                        setTimeout(() => { ink.style.width = '600px';
+                        setTimeout(function() { ink.style.width = '600px';
                             ink.style.height = '600px'; }, 10);
                     });
-                    rect.addEventListener('mouseleave', () => {
+                    rect.addEventListener('mouseleave', function() {
                         ink.style.opacity = '0';
                         ink.style.width = '0';
                         ink.style.height = '0';
                     });
                 });
 
-                document.querySelectorAll('#support-split-screen .half-link').forEach(link => {
-                    link.addEventListener('mousemove', (e) => {
-                        const r = link.getBoundingClientRect();
+                document.querySelectorAll('#support-split-screen .half-link').forEach(function(link) {
+                    link.addEventListener('mousemove', function(e) {
+                        var r = link.getBoundingClientRect();
                         link.style.setProperty('--mouse-x', ((e.clientX - r.left) / r.width * 100) + '%');
                         link.style.setProperty('--mouse-y', ((e.clientY - r.top) / r.height * 100) + '%');
-                        const glow = link.querySelector('.bg-glow');
+                        var glow = link.querySelector('.bg-glow');
                         if (glow) glow.style.opacity = '1';
                     });
-                    link.addEventListener('mouseleave', () => {
-                        const glow = link.querySelector('.bg-glow');
+                    link.addEventListener('mouseleave', function() {
+                        var glow = link.querySelector('.bg-glow');
                         if (glow) glow.style.opacity = '0';
                     });
                 });
 
                 function splitText(selector) {
-                    const el = document.querySelector(selector);
+                    var el = document.querySelector(selector);
                     if (!el) return;
-                    const text = el.textContent;
+                    var text = el.textContent;
                     el.innerHTML = '';
-                    text.split('').forEach((char, i) => {
-                        const span = document.createElement('span');
+                    for (var i = 0; i < text.length; i++) {
+                        var span = document.createElement('span');
                         span.className = 'char';
-                        span.textContent = char === ' ' ? '\u00A0' : char;
+                        span.textContent = text.charAt(i) === ' ' ? '\u00A0' : text.charAt(i);
                         span.style.transitionDelay = (i * 15) + 'ms';
                         el.appendChild(span);
-                    });
+                    }
                 }
-                setTimeout(() => { splitText('#support-telegram-label');
+                setTimeout(function() { splitText('#support-telegram-label');
                     splitText('#support-safew-label'); }, 100);
 
                 intro.setAttribute('aria-hidden', 'false');
@@ -4892,7 +4867,7 @@
                 action.setAttribute('aria-hidden', 'true');
                 split.setAttribute('aria-hidden', 'true');
 
-                modalWrapper.addEventListener('transitionend', () => {
+                modalWrapper.addEventListener('transitionend', function() {
                     if (modalWrapper.classList.contains('open')) resizeCanvas();
                 });
 
@@ -4903,9 +4878,6 @@
 
         })();
     </script>
-
-    <!-- result message placeholder for promo pop-up -->
-    <div id="result-message" style="margin-top:1.5rem; text-align:center; color:#9892b3; display:none;"></div>
 
 </body>
 </html>
